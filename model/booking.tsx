@@ -2,11 +2,11 @@ import mongoose, { Schema } from 'mongoose';
 
 const BookingSchema: Schema = new Schema({
 
-    amount: Number,
-    date: Date,
-    time: String,
-    guestId: String,
-    id: Number,
+    amount: Number['amount'],
+    date: Date['date'],
+    time: String['time'],
+    guestId: String['guestId'],
+    id: Number['id'],
 
 });
 
