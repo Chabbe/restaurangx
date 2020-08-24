@@ -1,6 +1,6 @@
 
 const config = {
-    databaseURL: process.env.DATABASE,
+    databaseURL: process.env.DATABASE
 }
  
-module.exports = config
+module.exports = config;
