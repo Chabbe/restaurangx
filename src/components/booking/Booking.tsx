@@ -4,14 +4,13 @@ import Guest from "../guest/Guest";
 import Table from "../table/Table";
 import TableModel from "../../models/tableModel";
 
-export default function booking(){
+export default function Booking(){
 
-    let bookings: TableModel[] = [];
+    let tables: TableModel[] = [];
 
     useEffect(() => {
-      axios.get("http://localhost:8000").then((res) => {
+      axios.get("http://localhost:8000/table").then((res) => {
         console.log(res.data);
-        bookings = res.data;
       });
     }, []);
 
@@ -20,7 +19,7 @@ export default function booking(){
         <div>
             <form>
                 <Guest></Guest>
-                <Table data={bookings}></Table>
+                <Table data={tables}></Table>
             </form>
         </div>
 

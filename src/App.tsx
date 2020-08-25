@@ -8,7 +8,6 @@ function App() {
 
   return (
     <div>
-      <Guest dataFromApi={bookings}></Guest>
       <Booking></Booking>
     </div>
   );
