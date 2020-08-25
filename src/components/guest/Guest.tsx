@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function guest(){
+export default function Guest(){
 
     function postReservation(){
         

@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
-import axios from "axios";
-import Guest from "./components/guest/Guest";
+import React from "react";
+
 import Booking from "./components/booking/Booking";
 import "./App.css";
 
