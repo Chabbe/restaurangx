@@ -3,10 +3,9 @@ import axios from "axios";
 import "./App.css";
 
 function App() {
-
   useEffect(() => {
-    axios.post(`http://localhost:8000`).then((res) => {
-      console.log(res.data);
+    axios.get(`http://localhost:8000/`).then((res) => {
+      console.log(res);
     });
   }, []);
 
