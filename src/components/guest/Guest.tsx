@@ -2,7 +2,7 @@ import React, { useState, ChangeEvent } from "react";
 import GuestModel from "../../models/guestModel";
 
 interface IGuest {
-    data: GuestModel[];
+    // data: GuestModel[];
     post: (guestObject: GuestModel)=> void;
   }
   

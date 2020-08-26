@@ -1,6 +1,6 @@
 
 
-type TableModel = {
+type GuestModel = {
  
     firstname: String,
     lastname: String,
@@ -9,4 +9,4 @@ type TableModel = {
     
 }
 
-export default TableModel;
+export default GuestModel;
