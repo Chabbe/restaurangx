@@ -8,11 +8,9 @@ import GuestModel from "../../models/guestModel";
 export default function Booking() {
   const [tables, setTables] = useState({});
   const [guests, setGuests] = useState({});
-  const [msg, setMsg] = useState("");
   const [availabilityMsg, setAvailabilityMsg] = useState("");
 
   function postTable(guestId: number) {
-    console.log(guestId);
     axios
       .post("http://localhost:8000/table", { tables, guestId })
       .then((res) => {});
@@ -32,18 +30,14 @@ export default function Booking() {
       .post("http://localhost:8000/availability", tableObject)
       .then((res) => {
         if (!res.data.success) {
-          console.log(res.data.success);
           if (res.data.othersuccess) {
-            console.log(res.data.othersuccess);
-            setAvailabilityMsg("Fullbokat, men ledigt XX");
+            setAvailabilityMsg( "Fullbokat men ledigt på " + (tableObject.time === 21 ? 18 : 21) + ":00");
           } else {
             setAvailabilityMsg("Fullbokat");
           }
         } else {
           setAvailabilityMsg("Ledigt, välkommen att boka");
         }
-        console.log("success", res.data.success);
-        console.log("othersuccess", res.data.othersuccess);
       });
   }
 

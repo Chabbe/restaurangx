@@ -41,7 +41,6 @@ export default function Table(props: ITable) {
       <input type="radio" name="time" value="18" onChange={updateTable} />
       <input type="radio" name="time" value="21" onChange={updateTable} />
 
-      <button type="button">Check if available</button>
     </div>
   );
 }
