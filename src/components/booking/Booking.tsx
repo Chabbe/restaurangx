@@ -9,12 +9,14 @@ export default function Booking() {
   const [tables, setTables] = useState({});
   const [guests, setGuests] = useState({});
   const [msg, setMsg] = useState("");
-  const [guestId, setGuestId] = useState(0);
+  
 
-  useEffect(()=> {
+
+
+  function postTable(guestId:number) {
     console.log(guestId)
     axios.post("http://localhost:8000/table", {tables, guestId}).then((res) => {});
-  }, [guestId])
+  }
 
   function setGuest(guestObject: GuestModel) {
     setGuests(guestObject);
@@ -26,12 +28,14 @@ export default function Booking() {
 
   function makeReservation(guestObject: GuestModel) {
     setGuest(guestObject);
+    
     axios.post("http://localhost:8000/availablility", tables).then((res) => {
       if (!res.data.success) setMsg("fail");
       else {
         setMsg("success");
+        console.log("hej")
         axios.post("http://localhost:8000/guest", guests).then((res) => {
-          setGuestId(res.data.guestId);
+          postTable(res.data.guestId);
         });
       }
     });
@@ -40,13 +44,14 @@ export default function Booking() {
   function deleteAll() {
     axios.post("http://localhost:8000/deleteall");
   }
+
   return (
     <div>
       <form>
         <p>{msg}</p>
         <Table set={setTable}></Table>
         <Guest post={makeReservation} set={setGuest}></Guest>
-        <button onClick={deleteAll}></button>
+        <button onClick={deleteAll}>delete all</button>
       </form>
     </div>
   );
