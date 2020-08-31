@@ -4,6 +4,7 @@ import TableModel from "../../models/tableModel";
 
 interface ITable {
   data: TableModel[];
+  post: (data: TableModel)=> void;
 }
 
 export default function Table(props: ITable) {
@@ -16,8 +17,8 @@ export default function Table(props: ITable) {
   // const [dateNumber, setDateNumber] = useState(0)
 
   function availability() {
-    console.log(props.data)
-  }
+    props.post(tableObject)
+  } 
 
   function updateDate(event: ChangeEvent<HTMLInputElement>) {
     setTableObject({

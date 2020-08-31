@@ -1,6 +1,8 @@
 import React from "react";
-
-export default function Guest(){
+interface IGuest {
+    data: any[]
+}
+export default function Guest(props:IGuest){
 
     function postReservation(){
         
