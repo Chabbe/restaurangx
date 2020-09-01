@@ -39,6 +39,7 @@ export default function Table(props: ITable) {
       <input type="radio" name="count" value="4" onChange={updateTable} />
       <input type="radio" name="count" value="5" onChange={updateTable} />
       <input type="radio" name="count" value="6" onChange={updateTable} />
+<<<<<<< HEAD
       
       <input type="radio" name="count" value="7" onChange={updateTable} />
       <input type="radio" name="count" value="8" onChange={updateTable} />
@@ -48,6 +49,8 @@ export default function Table(props: ITable) {
       <input type="radio" name="count" value="12" onChange={updateTable} />
       
 
+=======
+>>>>>>> 937dd9722b70c6f32d62e8584def0290cdc24881
       <input type="radio" name="count" value="7" onChange={updateTable} />
       <input type="radio" name="count" value="8" onChange={updateTable} />
       <input type="radio" name="count" value="9" onChange={updateTable} />
