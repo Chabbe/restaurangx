@@ -1,7 +1,7 @@
 interface TableModel {
   date: Date;
-  time: Number;
-  count: Number;
+  time: number;
+  count: number;
 }
 
 export default TableModel;
