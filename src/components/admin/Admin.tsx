@@ -45,10 +45,7 @@ export default function Admin() {
 
     function editBooking(id: number) {
         axios.post("http://localhost:8000/availabilty", updatedTable).then((res) => {
-            console.log("hej")
-            if (res.data.success) {
-                axios.put("http://localhost:8000/edit/" + id, updatedTable).then((res) =>  getTableData() )
-            }
+            if (res.data.success) axios.put("http://localhost:8000/edit/" + id, updatedTable).then((res) =>  getTableData() )
         })
     }
 
