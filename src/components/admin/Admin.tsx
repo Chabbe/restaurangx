@@ -75,9 +75,13 @@ export default function Admin() {
         );
     }
 
+    function getData(data: any){
+        setTableData(data)
+    };
+
     return (
         <div>
-            <Filter></Filter>
+            <Filter sendData={getData}></Filter>
             <ul>
                 {tableData.map((data: TableModel, index) => {
                     return (
