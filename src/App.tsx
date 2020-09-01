@@ -2,15 +2,14 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Link
 } from "react-router-dom";
-
 import Booking from "./components/booking/Booking";
-import "./App.css";
 import Admin from "./components/admin/Admin";
+import "./App.css";
 
 function App() {
-
   return (
     <Router>
       <Switch>
@@ -22,7 +21,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
-  
+
   );
 }
 
