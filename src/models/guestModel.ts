@@ -1,8 +1,8 @@
 interface GuestModel {
-  firstname: String;
-  lastname: String;
-  email: String;
-  phonenr: Number;
+  firstname: string;
+  lastname: string;
+  email: string;
+  phonenr: number;
 }
 
 export default GuestModel;
