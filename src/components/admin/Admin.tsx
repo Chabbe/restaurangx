@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import axios from "axios";
-
+import Filter from "../filter/Filter"
 import TableModel from "../../models/tableModel";
 
 export default function Admin() {
@@ -77,6 +77,7 @@ export default function Admin() {
 
     return (
         <div>
+            <Filter></Filter>
             <ul>
                 {tableData.map((data: TableModel, index) => {
                     return (
