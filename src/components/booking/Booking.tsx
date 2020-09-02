@@ -13,7 +13,7 @@ export default function Booking() {
   function postTable(guestId: number) {
     axios
       .post("http://localhost:8000/table", { tables, guestId })
-      .then((res) => { });
+      .then((res) => {});
   }
   function setGuest(guestObject: GuestModel) {
     setGuests(guestObject);
@@ -30,7 +30,11 @@ export default function Booking() {
       .then((res) => {
         if (!res.data.success) {
           if (res.data.othersuccess) {
-            setAvailabilityMsg("Fullbokat men ledigt på " + (tableObject.time === 21 ? 18 : 21) + ":00");
+            setAvailabilityMsg(
+              "Fullbokat men ledigt på " +
+                (tableObject.time === 21 ? 18 : 21) +
+                ":00"
+            );
           } else {
             setAvailabilityMsg("Fullbokat");
           }
@@ -57,13 +61,25 @@ export default function Booking() {
   }
 
   return (
-    <div>
-      <form>
-        <p>{availabilityMsg}</p>
-        <Table set={setTable}></Table>
-        <Guest post={makeReservation} set={setGuest}></Guest>
-        <button onClick={deleteAll}>delete all</button>
-      </form>
+    <div className="container-fluid">
+      <div className="row justify-content-center">
+        <div className="col-sm-11 col-md-6 col-lg-4">
+          <form>
+            <p>{availabilityMsg}</p>
+            <Table set={setTable}></Table>
+            <Guest post={makeReservation} set={setGuest}></Guest>
+            <div className="mt-5">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={deleteAll}
+            >
+              delete all
+            </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

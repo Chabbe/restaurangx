@@ -12,7 +12,7 @@ export default function Table(props: ITable) {
     time: 0,
     count: 0,
     id: 0,
-    guestId: 0
+    guestId: 0,
   });
 
   useEffect(() => {
@@ -30,25 +30,70 @@ export default function Table(props: ITable) {
   }
 
   return (
-    <div>
-      <input type="date" name="date" onChange={updateTable} />
-
-      <input type="radio" name="count" value="1" onChange={updateTable} />
-      <input type="radio" name="count" value="2" onChange={updateTable} />
-      <input type="radio" name="count" value="3" onChange={updateTable} />
-      <input type="radio" name="count" value="4" onChange={updateTable} />
-      <input type="radio" name="count" value="5" onChange={updateTable} />
-      <input type="radio" name="count" value="6" onChange={updateTable} />
-      <input type="radio" name="count" value="7" onChange={updateTable} />
-      <input type="radio" name="count" value="8" onChange={updateTable} />
-      <input type="radio" name="count" value="9" onChange={updateTable} />
-      <input type="radio" name="count" value="10" onChange={updateTable} />
-      <input type="radio" name="count" value="11" onChange={updateTable} />
-      <input type="radio" name="count" value="12" onChange={updateTable} />
-
-      <input type="radio" name="time" value="18" onChange={updateTable} />
-      <input type="radio" name="time" value="21" onChange={updateTable} />
-
+    <div className="row">
+      <div className="col-12 bg-secondary p-3">
+        <div className="form-row">
+          <div className="form-group col-12">
+            <input type="date" name="date" onChange={updateTable} />
+            <label htmlFor="time18">
+              18:00
+              <input
+                type="radio"
+                name="time"
+                value="18"
+                id="time18"
+                onChange={updateTable}
+              />
+            </label>
+            <label htmlFor="time21">
+              21:00
+              <input
+                type="radio"
+                name="time"
+                value="21"
+                id="time21"
+                onChange={updateTable}
+              />
+            </label>
+          </div>
+        </div>
+        <label>1
+        <input type="radio" name="count" value="1" onChange={updateTable} />
+        </label>
+        <label>2
+        <input type="radio" name="count" value="2" onChange={updateTable} />
+        </label>
+        <label>3
+        <input type="radio" name="count" value="3" onChange={updateTable} />
+        </label>
+        <label>4
+        <input type="radio" name="count" value="4" onChange={updateTable} />
+        </label>
+        <label>5
+        <input type="radio" name="count" value="5" onChange={updateTable} />
+        </label>
+        <label>6
+        <input type="radio" name="count" value="6" onChange={updateTable} />
+        </label>
+        <label>7
+        <input type="radio" name="count" value="7" onChange={updateTable} />
+        </label>
+        <label>8
+        <input type="radio" name="count" value="8" onChange={updateTable} />
+        </label>
+        <label>9
+        <input type="radio" name="count" value="9" onChange={updateTable} />
+        </label>
+        <label>10
+        <input type="radio" name="count" value="10" onChange={updateTable} />
+        </label>
+        <label>11
+        <input type="radio" name="count" value="11" onChange={updateTable} />
+        </label>
+        <label>12
+        <input type="radio" name="count" value="12" onChange={updateTable} />
+        </label>
+      </div>
     </div>
   );
 }

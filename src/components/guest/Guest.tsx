@@ -15,9 +15,9 @@ export default function Guest(props: IGuest) {
     phonenr: 0,
   });
 
-  useEffect(()=>{
+  useEffect(() => {
     props.set(guestObject);
-  }, [guestObject, props])
+  }, [guestObject, props]);
 
   function updateGuest(event: ChangeEvent<HTMLInputElement>) {
     setGuestObject({
@@ -34,34 +34,73 @@ export default function Guest(props: IGuest) {
   }
 
   return (
-    <div>
-      <input
-        type="text"
-        name="firstname"
-        placeholder="firstname"
-        onChange={updateGuest}
-      />
-      <input
-        type="text"
-        name="lastname"
-        placeholder="lastname"
-        onChange={updateGuest}
-      />
-      <input
-        type="email"
-        name="email"
-        placeholder="email"
-        onChange={updateGuest}
-      />
-      <input
-        type="tel"
-        name="phonenr"
-        placeholder="phonenr"
-        onChange={updateGuest}
-      />
-      <button type="button" onClick={postReservation}>
-        Make a reservation
-      </button>
+    <div className="row">
+      <div className="col-12 bg-light p-3">
+        <div className="form-row">
+          <div className="form-group col-12">
+            <input
+              type="text"
+              name="firstname"
+              placeholder="Firstname"
+              className="form-control"
+              onChange={updateGuest}
+            />
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group col-12">
+            <input
+              type="text"
+              name="lastname"
+              placeholder="Lastname"
+              className="form-control"
+              onChange={updateGuest}
+            />
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group col-12">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              className="form-control"
+              onChange={updateGuest}
+            />
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group col-12">
+            <input
+              type="tel"
+              name="phonenr"
+              placeholder="Phone number"
+              className="form-control"
+              onChange={updateGuest}
+            />
+          </div>
+        </div>
+
+        <div className="form-group">
+          <div className="form-check">
+            <label htmlFor="gdprCheck" className="form-check-label">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="gdprCheck"
+              ></input>
+              Jag godkänner hanteringeringen av mina personuppgifter
+            </label>
+          </div>
+        </div>
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={postReservation}
+        >
+          Make a reservation
+        </button>
+      </div>
     </div>
   );
 }
