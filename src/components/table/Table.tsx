@@ -13,7 +13,7 @@ export default function Table(props: ITable) {
     time: 0,
     count: 0,
     id: 0,
-    guestId: 0
+    guestId: 0,
   });
 
   useEffect(() => {
@@ -31,9 +31,37 @@ export default function Table(props: ITable) {
   }
 
   return (
-    <div>
-      <input type="date" name="date" onChange={updateTable} />
-      <select name="count" value={tableObject.count} onChange={updateTable}>
+   
+
+    <div className="row">
+      <div className="col-12 bg-secondary p-3">
+        <div className="form-row">
+          <div className="form-group col-12">
+            <input type="date" name="date" onChange={updateTable} />
+            <label htmlFor="time18">
+              18:00
+              <input
+                type="radio"
+                name="time"
+                value="18"
+                id="time18"
+                onChange={updateTable}
+              />
+            </label>
+            <label htmlFor="time21">
+              21:00
+              <input
+                type="radio"
+                name="time"
+                value="21"
+                id="time21"
+                onChange={updateTable}
+              />
+            </label>
+          </div>
+        </div>
+        <label>Count</label>
+        <select name="count" value={tableObject.count} onChange={updateTable}>
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -47,11 +75,7 @@ export default function Table(props: ITable) {
         <option>11</option>
         <option>12</option>
       </select> 
-
-
-      <input type="radio" name="time" value="18" onChange={updateTable} />
-      <input type="radio" name="time" value="21" onChange={updateTable} />
-
+      </div>
     </div>
   );
 }
