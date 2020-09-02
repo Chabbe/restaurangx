@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import axios from "axios";
-
+import Filter from "../filter/Filter"
 import TableModel from "../../models/tableModel";
 
 export default function Admin() {
@@ -45,9 +45,7 @@ export default function Admin() {
 
     function editBooking(id: number) {
         axios.post("http://localhost:8000/availabilty", updatedTable).then((res) => {
-            if (res.data.success) {
-                axios.put("http://localhost:8000/edit/" + id, updatedTable).then((res) =>  getTableData() )
-            }
+            if (res.data.success) axios.put("http://localhost:8000/edit/" + id, updatedTable).then((res) =>  getTableData() )
         })
     }
 
@@ -77,8 +75,13 @@ export default function Admin() {
         );
     }
 
+    function getData(data: any){
+        setTableData(data)
+    };
+
     return (
         <div>
+            <Filter sendData={getData}></Filter>
             <ul>
                 {tableData.map((data: TableModel, index) => {
                     return (

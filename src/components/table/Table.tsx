@@ -39,15 +39,6 @@ export default function Table(props: ITable) {
       <input type="radio" name="count" value="4" onChange={updateTable} />
       <input type="radio" name="count" value="5" onChange={updateTable} />
       <input type="radio" name="count" value="6" onChange={updateTable} />
-      
-      <input type="radio" name="count" value="7" onChange={updateTable} />
-      <input type="radio" name="count" value="8" onChange={updateTable} />
-      <input type="radio" name="count" value="9" onChange={updateTable} />
-      <input type="radio" name="count" value="10" onChange={updateTable} />
-      <input type="radio" name="count" value="11" onChange={updateTable} />
-      <input type="radio" name="count" value="12" onChange={updateTable} />
-      
-
       <input type="radio" name="count" value="7" onChange={updateTable} />
       <input type="radio" name="count" value="8" onChange={updateTable} />
       <input type="radio" name="count" value="9" onChange={updateTable} />
