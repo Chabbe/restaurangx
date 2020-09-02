@@ -15,9 +15,9 @@ export default function Guest(props: IGuest) {
     phonenr: 0,
   });
 
-  useEffect(()=>{
+  useEffect(() => {
     props.set(guestObject);
-  }, [guestObject, props])
+  }, [guestObject, props]);
 
   function updateGuest(event: ChangeEvent<HTMLInputElement>) {
     setGuestObject({
