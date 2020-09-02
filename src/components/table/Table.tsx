@@ -18,7 +18,7 @@ export default function Table(props: ITable) {
 
   useEffect(() => {
     props.set(tableObject);
-  }, [tableObject, props]);
+  }, [tableObject]);
 
   function updateTable(event: ChangeEvent<any>) {
     setTableObject({

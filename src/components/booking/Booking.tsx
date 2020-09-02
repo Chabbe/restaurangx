@@ -13,9 +13,8 @@ export default function Booking() {
   function postTable(guestId: number) {
     axios
       .post("http://localhost:8000/table", { tables, guestId })
-      .then((res) => {});
+      .then((res) => { });
   }
-
   function setGuest(guestObject: GuestModel) {
     setGuests(guestObject);
   }
@@ -31,7 +30,7 @@ export default function Booking() {
       .then((res) => {
         if (!res.data.success) {
           if (res.data.othersuccess) {
-            setAvailabilityMsg( "Fullbokat men ledigt på " + (tableObject.time === 21 ? 18 : 21) + ":00");
+            setAvailabilityMsg("Fullbokat men ledigt på " + (tableObject.time === 21 ? 18 : 21) + ":00");
           } else {
             setAvailabilityMsg("Fullbokat");
           }
