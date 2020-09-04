@@ -1,0 +1,12 @@
+
+@import "./components/home/bookingButton.scss";
+@import "./components/home/neonSign.scss";
+
+body {
+    margin: 0px;
+    #root{
+        .container-fluid{
+            padding:0px
+        }
+    }
+}

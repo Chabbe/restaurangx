@@ -9,6 +9,9 @@ export default function Booking() {
   const [tables, setTables] = useState({});
   const [guests, setGuests] = useState({});
   const [availabilityMsg, setAvailabilityMsg] = useState("");
+  const [validationMsg, setValidationMsg] = useState("")
+  
+ 
 
   function postTable(guestId: number) {
     axios
@@ -45,6 +48,9 @@ export default function Booking() {
   }
 
   function makeReservation(guestObject: GuestModel) {
+    if(validationMsg !== "" || availabilityMsg !== "Ledigt, välkommen att boka") return
+
+    console.log("Reservation made")
     setGuest(guestObject);
 
     axios.post("http://localhost:8000/availability", tables).then((res) => {
@@ -66,20 +72,21 @@ export default function Booking() {
         <div className="col-sm-11 col-md-6 col-lg-4">
           <form>
             <p>{availabilityMsg}</p>
-            <Table set={setTable}></Table>
-            <Guest post={makeReservation} set={setGuest}></Guest>
+            <p>{validationMsg}</p>
+            <Table set={setTable} setValidation={setValidationMsg}></Table>
+            <Guest post={makeReservation} setValidation={setValidationMsg} set={setGuest}></Guest>
             <div className="mt-5">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              onClick={deleteAll}
-            >
-              delete all
-            </button>
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={deleteAll}
+              >
+                delete all
+              </button>
             </div>
           </form>
         </div>
       </div>
     </div>
- );
+  );
 }
