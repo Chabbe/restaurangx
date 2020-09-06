@@ -69,17 +69,17 @@ export default function Booking() {
   }
 
   return (
-    <div className="container-fluid">
-      <div className="row justify-content-center">
-        <form className="form col-sm-12 col-md-10 col-lg-10">
-          <p>{availabilityMsg}</p>
-          <p>{validationMsg}</p>
+    <div className="container-fluid p-0">
+      <div className="row justify-content-center p-0">
+        <form className="form col-sm-12 col-md-12 col-lg-12 p-0">
           <Table set={setTable} setValidation={setValidationMsg}></Table>
           <Guest
             post={makeReservation}
             setValidation={setValidationMsg}
             set={setGuest}
-          ></Guest>
+            ></Guest>
+            <p>{availabilityMsg}</p>
+            <p>{validationMsg}</p>
           <div className="mt-5">
             <button
               type="button"

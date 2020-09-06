@@ -20,7 +20,7 @@ export default function Table(props: ITable) {
   }, [tableObject]);
 
   function checkDate(event: KeyboardEvent<HTMLInputElement>) {
-    if (/[a-zA-Z]/g.test(event.key)) {
+    if (!/\d/.test(event.key)) {
       event.preventDefault();
       event.stopPropagation();
     }
@@ -48,72 +48,86 @@ export default function Table(props: ITable) {
 
   return (
     <div className="form-group col-12">
-      <div className="row align-self-center">
+      <div className="row date justify-content-center">
+        <h1>Which day?</h1>
         <input
           type="text"
-          name="date-year"
+          name="date"
           id="dateYear"
           className="dateInput"
-          placeholder="2020"
+          placeholder={new Date().toString().slice(11,15)}
           onKeyPress={checkDate}
           onChange={updateTable}
           onBlur={validate}
-        />
+          autoComplete="none"
+          /><p>-</p>
         <input
-          type="number"
-          name="dateMonth"
+          type="text"
+          name="date"
           className="dateInput"
-          placeholder="09"
+          placeholder={(new Date().getMonth()+1) < 10 ? "0"+(new Date().getMonth()+1).toString() : (new Date().getMonth()+1).toString()}
+          onKeyPress={checkDate}
           onChange={updateTable}
           onBlur={validate}
-        />
+          autoComplete="none"
+          /><p>-</p>
         <input
-          type="number"
-          name="dateDay"
+          type="text"
+          name="date"
           className="dateInput"
-          placeholder="06"
+          placeholder={new Date().toString().slice(8,10)}
+          onKeyPress={checkDate}
           onChange={updateTable}
           onBlur={validate}
-        />
+          autoComplete="none"
+          />
       </div>
-      <div className="row">
+      <div className="row times justify-content-center">
+          <h1>What time?</h1>
         <label htmlFor="time18">
           18:00
           <input
             type="radio"
+            className="timeInput"
             name="time"
             value="18"
             id="time18"
             onChange={updateTable}
-          />
+            />
+          <span className="checkbox"></span>
         </label>
         <label htmlFor="time21">
           21:00
           <input
+            className="timeInput"
             type="radio"
             name="time"
             value="21"
             id="time21"
             onChange={updateTable}
-          />
+            />
+          <span className="checkbox"></span>
         </label>
       </div>
-      <div className="row">
-        <label>Count</label>
-        <select name="count" value={tableObject.count} onChange={updateTable}>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
-          <option>11</option>
-          <option>12</option>
-        </select>
+      <div className="row count justify-content-center">
+            <h1>How many?</h1>
+        <label>
+          Count
+          <select name="count" value={tableObject.count} onChange={updateTable}>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+          </select>
+        </label>
       </div>
     </div>
   );
