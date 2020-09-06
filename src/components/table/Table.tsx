@@ -1,6 +1,5 @@
-import React, { useState, ChangeEvent, useEffect } from "react";
+import React, { useState, ChangeEvent, useEffect, KeyboardEvent } from "react";
 import TableModel from "../../models/tableModel";
-import { ConnectionStates } from "mongoose";
 
 interface ITable {
   set: (tableObject: TableModel) => void;
@@ -19,6 +18,13 @@ export default function Table(props: ITable) {
   useEffect(() => {
     props.set(tableObject);
   }, [tableObject]);
+
+  function checkDate(event: KeyboardEvent<HTMLInputElement>) {
+    if (/[a-zA-Z]/g.test(event.key)) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }
 
   function updateTable(event: ChangeEvent<any>) {
     setTableObject({
@@ -41,38 +47,58 @@ export default function Table(props: ITable) {
   }
 
   return (
-    <div className="row">
-      <div className="col-12 bg-secondary p-3">
-        <div className="form-row">
-          <div className="form-group col-12">
-            <input
-              type="date"
-              name="date"
-              onChange={updateTable}
-              onBlur={validate}
-            />
-            <label htmlFor="time18">
-              18:00
-              <input
-                type="radio"
-                name="time"
-                value="18"
-                id="time18"
-                onChange={updateTable}
-              />
-            </label>
-            <label htmlFor="time21">
-              21:00
-              <input
-                type="radio"
-                name="time"
-                value="21"
-                id="time21"
-                onChange={updateTable}
-              />
-            </label>
-          </div>
-        </div>
+    <div className="form-group col-12">
+      <div className="row align-self-center">
+        <input
+          type="text"
+          name="date-year"
+          id="dateYear"
+          className="dateInput"
+          placeholder="2020"
+          onKeyPress={checkDate}
+          onChange={updateTable}
+          onBlur={validate}
+        />
+        <input
+          type="number"
+          name="dateMonth"
+          className="dateInput"
+          placeholder="09"
+          onChange={updateTable}
+          onBlur={validate}
+        />
+        <input
+          type="number"
+          name="dateDay"
+          className="dateInput"
+          placeholder="06"
+          onChange={updateTable}
+          onBlur={validate}
+        />
+      </div>
+      <div className="row">
+        <label htmlFor="time18">
+          18:00
+          <input
+            type="radio"
+            name="time"
+            value="18"
+            id="time18"
+            onChange={updateTable}
+          />
+        </label>
+        <label htmlFor="time21">
+          21:00
+          <input
+            type="radio"
+            name="time"
+            value="21"
+            id="time21"
+            onChange={updateTable}
+          />
+        </label>
+      </div>
+      <div className="row">
         <label>Count</label>
         <select name="count" value={tableObject.count} onChange={updateTable}>
           <option>1</option>

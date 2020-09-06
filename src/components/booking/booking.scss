@@ -1,0 +1,30 @@
+.container-fluid {
+    background-color: mediumspringgreen;
+    height: 100vh;
+    .justify-content-center {
+        margin:0;
+        .form {
+            .form-group {
+                .row {
+                    .dateInput {
+                        height: 100px;
+                        width: 200px;
+                        font-size: 40pt;
+                        text-align: center;
+                        border:none;
+                        outline:none;
+                    }
+                    .dateInput:nth-child(1) {
+                        border-top-left-radius: 20px;
+                        border-bottom-left-radius: 20px;
+                    }
+                    .dateInput:nth-child(3) {
+                        border-top-right-radius: 20px;
+                        border-bottom-right-radius: 20px;
+                    }
+                }
+            }
+        }
+
+    }
+ }

@@ -8,22 +8,19 @@ import Home from "./components/home/Home";
 
 function App() {
   return (
-    <div className="container-fluid">
-      <Router>
-        <Switch>
-          
-          <Route path="/admin">
-            <Admin></Admin>
-          </Route>
-          <Route path="/booking">
-            <Booking></Booking>
-          </Route>
-          <Route path="/">
-            <Home></Home>
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/admin">
+          <Admin></Admin>
+        </Route>
+        <Route path="/booking">
+          <Booking></Booking>
+        </Route>
+        <Route path="/">
+          <Home></Home>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

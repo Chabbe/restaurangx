@@ -3,16 +3,14 @@
   src: url("../../assets/fonts/NEON\ ABSOLUTE\ SANS1.ttf");
 }
 
-$lightsOnShadow: 0 0 10px rgb(32, 210, 255),
-0 0 20px rgb(24, 209, 255),
-0 0 30px rgb(18, 186, 253);
-$lightsOn: rgb(132, 251, 255);
+$lightsOnShadow: 0 0 10px rgb(175, 238, 253), 0 0 20px rgb(81, 206, 255),
+  0 0 30px rgb(0, 110, 255);
+$lightsOn: #bceaff;
 
-$lightsFadeShadow: 0 0 10px rgba(32, 210, 255, 0.5),
-0 0 20px rgba(24, 209, 255, 0.5),
-0 0 30px rgba(18, 186, 253, 0.5);
+$lightsFadeShadow: 0 0 10px rgba(175, 238, 253, 0.5),
+  0 0 20px rgba(81, 206, 255, 0.5), 0 0 30px rgba(0, 110, 255, 0.5);
 
-$lightsFade: rgba(0, 247, 255, 0.6);
+$lightsFade: #bceaff93;
 
 $lightsOff: rgba(212, 239, 255, 0.3);
 
@@ -26,12 +24,12 @@ $lightsOff: rgba(212, 239, 255, 0.3);
   justify-content: center;
   align-items: center;
 
-  // background-image: radial-gradient(rgba(0, 54, 124, 0.342) 20%, rgba(0, 0, 0, 0.808) 60%), url(../../assets/img/black-bricks.jpg);
-  background-image: linear-gradient(45deg,
-      rgb(43, 15, 75) 0%,
-      rgb(13, 35, 63) 100%
-    );
- 
+  background-image: linear-gradient(
+    45deg,
+    rgb(29, 6, 47) 0%,
+    rgb(6, 29, 53) 100%
+  );
+
   background-size: 200%;
   animation-name: backgroundAnimation;
   animation-duration: 2s;
@@ -40,12 +38,9 @@ $lightsOff: rgba(212, 239, 255, 0.3);
   animation-direction: alternate;
   .align-self-center {
     .row {
-
-     
-
       .restaurangx {
         z-index: 1;
-        font-size: 100pt;
+        font-size: 170pt;
         margin: auto;
         color: $lightsOff;
         text-shadow: none;
@@ -53,7 +48,6 @@ $lightsOff: rgba(212, 239, 255, 0.3);
         animation: lightsOn 750ms linear 1s 1 forwards normal;
       }
     }
-
     .row {
       a {
         margin: auto;
@@ -69,16 +63,16 @@ $lightsOff: rgba(212, 239, 255, 0.3);
           font-size: 25pt;
           text-shadow: none;
           border-radius: 20px;
-          border: solid rgba(161, 71, 71, 0.1)10px;
+          border: solid rgba(161, 71, 71, 0.1) 10px;
           box-sizing: border-box;
           box-shadow: none;
-          transition: box-shadow 250ms, text-shadow 500ms;
+          transition: box-shadow 250ms, text-shadow 250ms, border 250ms;
           background-color: rgba(0, 0, 0, 0.1);
         }
 
         #booking-button:hover {
           color: white;
-          border-color: white;
+          border: solid rgb(255, 255, 255) 10px;
           text-shadow: 0 0 5px white, 0 0 10px rgb(255, 187, 246),
             0 0 15px rgb(255, 132, 218), 0 0 20px rgb(255, 83, 198),
             0 0 40px rgb(255, 31, 188), 0 0 60px rgb(255, 0, 179);
@@ -96,13 +90,11 @@ $lightsOff: rgba(212, 239, 255, 0.3);
 }
 
 @keyframes backgroundAnimation {
-  0%{
+  0% {
     background-position-x: 0;
-    background-position-y: 0;
   }
   100% {
     background-position-x: 100%;
-    background-position-y: 0;
   }
 }
 

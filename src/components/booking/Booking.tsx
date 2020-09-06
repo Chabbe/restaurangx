@@ -9,9 +9,7 @@ export default function Booking() {
   const [tables, setTables] = useState({});
   const [guests, setGuests] = useState({});
   const [availabilityMsg, setAvailabilityMsg] = useState("");
-  const [validationMsg, setValidationMsg] = useState("")
-  
- 
+  const [validationMsg, setValidationMsg] = useState("");
 
   function postTable(guestId: number) {
     axios
@@ -48,9 +46,13 @@ export default function Booking() {
   }
 
   function makeReservation(guestObject: GuestModel) {
-    if(validationMsg !== "" || availabilityMsg !== "Ledigt, välkommen att boka") return
+    if (
+      validationMsg !== "" ||
+      availabilityMsg !== "Ledigt, välkommen att boka"
+    )
+      return;
 
-    console.log("Reservation made")
+    console.log("Reservation made");
     setGuest(guestObject);
 
     axios.post("http://localhost:8000/availability", tables).then((res) => {
@@ -69,23 +71,25 @@ export default function Booking() {
   return (
     <div className="container-fluid">
       <div className="row justify-content-center">
-        <div className="col-sm-11 col-md-6 col-lg-4">
-          <form>
-            <p>{availabilityMsg}</p>
-            <p>{validationMsg}</p>
-            <Table set={setTable} setValidation={setValidationMsg}></Table>
-            <Guest post={makeReservation} setValidation={setValidationMsg} set={setGuest}></Guest>
-            <div className="mt-5">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={deleteAll}
-              >
-                delete all
-              </button>
-            </div>
-          </form>
-        </div>
+        <form className="form col-sm-12 col-md-10 col-lg-10">
+          <p>{availabilityMsg}</p>
+          <p>{validationMsg}</p>
+          <Table set={setTable} setValidation={setValidationMsg}></Table>
+          <Guest
+            post={makeReservation}
+            setValidation={setValidationMsg}
+            set={setGuest}
+          ></Guest>
+          <div className="mt-5">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={deleteAll}
+            >
+              delete all
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
