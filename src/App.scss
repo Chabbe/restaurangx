@@ -1,13 +1,14 @@
-
-@import "./components/home/bookingButton.scss";
-@import "./components/home/neonSign.scss";
-@import "./components//confirmation/confirmation.scss";
+@import "./components/home/home.scss";
+@import "./components/booking/booking.scss";
+@import "./components/table/table.scss";
+@import "./components/guest/guest.scss";
 
 body {
     margin: 0px;
-    #root{
-        .container-fluid{
-            padding:0px
-        }
-    }
+    overflow: hidden;
+    font-family: monospace;
+    // #root {
+        
+    // }
+   
 }

@@ -9,7 +9,7 @@ import Home from "./components/home/Home";
 
 function App() {
   return (
-    <div className="container-fluid">
+    
       <Router>
         <Switch>
           <Route path="/admin">
@@ -26,7 +26,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
+    
   );
 }
 

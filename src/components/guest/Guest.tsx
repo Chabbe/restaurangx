@@ -7,6 +7,7 @@ interface IGuest {
   set: (guestObject: GuestModel) => void;
   post: (guestObject: GuestModel) => void;
   setValidation: (message: string) => void;
+  back: () => void;
 }
 
 export default function Guest(props: IGuest) {
@@ -86,82 +87,79 @@ export default function Guest(props: IGuest) {
   }
 
   return (
-    <div className="row">
-      <div className="col-12 p-3">
-        <div className="form-row">
-          <div className="form-group col-12">
-            <input
-              type="text"
-              name="firstname"
-              placeholder="Firstname"
-              className="form-control"
-              onChange={updateGuest}
-              onBlur={validate}
-            />
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="form-group col-12">
-            <input
-              type="text"
-              name="lastname"
-              placeholder="Lastname"
-              className="form-control"
-              onChange={updateGuest}
-              onBlur={validate}
-            />
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="form-group col-12">
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              className="form-control"
-              onChange={updateGuest}
-              onBlur={validate}
-            />
-          </div>
-        </div>
-        <div className="form-row">
-          {/* <div className="form-group col-1" id="phoneprefix">
-            +46
-          </div> */}
+    <div className="guest col-12 p-3 m-0">
+    <button type="button" onClick={props.back}>change when?</button>
+      <div className="form-row">
+        <div className="form-group col-12">
           <input
-            type="tel"
-            name="phonenr"
-            placeholder="Phone number +46"
-            className="form-control form-group col-12"
+            type="text"
+            name="firstname"
+            placeholder="Firstname"
+            className="form-control"
             onChange={updateGuest}
             onBlur={validate}
           />
         </div>
-
-        <div className="form-group">
-          <div className="form-check">
-            <label htmlFor="gdprCheck" className="form-check-label">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                id="gdprCheck"
-                name="gdpr"
-                onBlur={validate}
-              ></input>
-              Jag godkänner hanteringeringen av mina personuppgifter
-            </label>
-          </div>
-        </div>
-        <Link to="/booking">
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={postReservation}
-          >
-            Make a reservation
-          </button>
-        </Link>
       </div>
+      <div className="form-row">
+        <div className="form-group col-12">
+          <input
+            type="text"
+            name="lastname"
+            placeholder="Lastname"
+            className="form-control"
+            onChange={updateGuest}
+            onBlur={validate}
+          />
+        </div>
+      </div>
+      <div className="form-row">
+        <div className="form-group col-12">
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            className="form-control"
+            onChange={updateGuest}
+            onBlur={validate}
+          />
+        </div>
+      </div>
+      <div className="form-row">
+        <div className="form-group col-1" id="phoneprefix">
+          +46
+        </div>
+        <input
+          type="tel"
+          name="phonenr"
+          placeholder="Phone number"
+          className="form-control form-group col-11"
+          onChange={updateGuest}
+          onBlur={validate}
+        />
+      </div>
+
+      <div className="form-group">
+        <div className="form-check">
+          <label htmlFor="gdprCheck" className="form-check-label">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id="gdprCheck"
+              name="gdpr"
+              onBlur={validate}
+            ></input>
+            Jag godkänner hanteringeringen av mina personuppgifter
+          </label>
+        </div>
+      </div>
+      <button
+        type="button"
+        className="btn btn-secondary"
+        onClick={postReservation}
+      >
+        Make a reservation
+      </button>
     </div>
   );
 }
