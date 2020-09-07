@@ -7,6 +7,16 @@
     h1{
         font-family: "Neon80s";
         margin-bottom: 25px;
+        text-shadow: 0 0 5px white, 0 0 10px rgb(255, 187, 246),
+            0 0 15px rgb(255, 132, 218), 0 0 20px rgb(255, 83, 198),
+            0 0 40px rgb(255, 31, 188), 0 0 60px rgb(255, 0, 179);
+
+          box-shadow: 0 0 5px white, 0 0 10px rgb(255, 187, 246),
+            0 0 15px rgb(255, 132, 218), 0 0 20px rgb(255, 83, 198),
+            0 0 40px rgb(255, 31, 188), 0 0 60px rgb(255, 0, 179),
+            inset 0 0 5px white, inset 0 0 10px rgb(255, 187, 246),
+            inset 0 0 15px rgb(255, 132, 218), inset 0 0 20px rgb(255, 83, 198),
+            inset 0 0 40px rgb(255, 31, 188), inset 0 0 60px rgb(255, 0, 179);
     }
     .email-info {
         font-family: monospace;
