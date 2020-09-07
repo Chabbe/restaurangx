@@ -42,7 +42,7 @@ export default function Table(props: ITable) {
 
   return (
     <div className="row">
-      <div className="col-12 bg-secondary p-3">
+      <div className="col-12 p-3">
         <div className="form-row">
           <div className="form-group col-12">
             <input

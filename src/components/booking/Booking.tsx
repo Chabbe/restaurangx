@@ -67,9 +67,9 @@ export default function Booking() {
   }
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid backgroundWrapper">
       <div className="row justify-content-center">
-        <div className="col-sm-11 col-md-6 col-lg-4">
+        <div className="col-sm-12 col-md-8 col-lg-8">
           <form>
             <p>{availabilityMsg}</p>
             <p>{validationMsg}</p>

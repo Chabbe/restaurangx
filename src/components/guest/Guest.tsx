@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, useEffect } from "react";
 import GuestModel from "../../models/guestModel";
+import { Link } from "react-router-dom";
 
 interface IGuest {
   // data: GuestModel[];
@@ -86,7 +87,7 @@ export default function Guest(props: IGuest) {
 
   return (
     <div className="row">
-      <div className="col-12 bg-light p-3">
+      <div className="col-12 p-3">
         <div className="form-row">
           <div className="form-group col-12">
             <input
@@ -124,14 +125,14 @@ export default function Guest(props: IGuest) {
           </div>
         </div>
         <div className="form-row">
-          <div className="form-group col-1" id="phoneprefix">
+          {/* <div className="form-group col-1" id="phoneprefix">
             +46
-          </div>
+          </div> */}
           <input
             type="tel"
             name="phonenr"
-            placeholder="Phone number"
-            className="form-control form-group col-11"
+            placeholder="Phone number +46"
+            className="form-control form-group col-12"
             onChange={updateGuest}
             onBlur={validate}
           />
@@ -151,13 +152,15 @@ export default function Guest(props: IGuest) {
             </label>
           </div>
         </div>
-        <button
-          type="button"
-          className="btn btn-secondary"
-          onClick={postReservation}
-        >
-          Make a reservation
-        </button>
+        <Link to="/booking">
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={postReservation}
+          >
+            Make a reservation
+          </button>
+        </Link>
       </div>
     </div>
   );
