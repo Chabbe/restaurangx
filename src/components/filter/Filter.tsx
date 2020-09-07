@@ -1,10 +1,9 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import axios from "axios";
-
 import TableModel from "../../models/tableModel";
 
 interface IFilter {
-  sendData: (data: any) => void;
+  sendData: (data: TableModel) => void;
   reset: () => void;
 }
 
@@ -41,13 +40,44 @@ export default function Filter(props: IFilter) {
   }
 
   return (
-    <div>
-      <form>
-        <input type="date" name="date" onChange={filterBookings} />
-        <input type="text" name="firstname" onChange={filterBookings} />
-        <input type="text" name="lastname" onChange={filterBookings} />
-        <button type="button" onClick={props.reset}>reset</button>
-      </form>
+    <div className="row justify-content-center ">
+      <div className="col-10 mt-2">
+        <form className="mt-5">
+          <div className="form-row">
+            <div className="form-group col-md-3">
+              <input
+                type="date"
+                name="date"
+                className="form-control"
+                onChange={filterBookings}
+              />
+            </div>
+            <div className="form-group col-md-4">
+              <input
+                type="text"
+                name="firstname"
+                className="form-control"
+                placeholder="Firstname"
+                onChange={filterBookings}
+              />
+            </div>
+            <div className="form-group col-md-4">
+              <input
+                type="text"
+                name="lastname"
+                className="form-control"
+                placeholder="Lastename"
+                onChange={filterBookings}
+              />
+            </div>
+            <div className="form-group col-md-1">
+              <button className="admninBtn" type="button" onClick={props.reset}>
+                reset
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
