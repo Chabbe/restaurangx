@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, useEffect } from "react";
 import GuestModel from "../../models/guestModel";
+import { Link } from "react-router-dom";
 
 interface IGuest {
   // data: GuestModel[];
@@ -239,13 +240,15 @@ export default function Guest(props: IGuest) {
           </label>
         </div>
       </div>
-      <button
-        type="button"
-        className="btn btn-secondary"
-        onClick={postReservation}
-      >
-        Make a reservation
-      </button>
+      <Link to="/cyal8ralig8r">
+        <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={postReservation}
+          >
+            Make a reservation
+          </button>
+        </Link>
     </div>
   );
 }

@@ -1,0 +1,35 @@
+.adminHeader {
+  text-align: center;
+
+  .adminHeaderText {
+    font-size: 70pt;
+  }
+}
+
+.changedMsg {
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.blackBorder {
+  border-top: 1px solid rgb(87, 81, 81);
+  padding-top: 7px;
+}
+
+.admninBtn {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+  border-radius: 12px;
+  text-align: center;
+  width: 90px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &:hover {
+    background-color: #555555;
+    color: white;
+  }
+}

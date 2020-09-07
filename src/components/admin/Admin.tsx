@@ -58,26 +58,39 @@ export default function Admin() {
 
   function edit(id: number) {
     return (
-      <div>
-        <input
-          type="date"
-          name="date"
-          placeholder="date"
-          onChange={updateTable}
-        />
-        <input
-          type="text"
-          name="time"
-          placeholder="time"
-          onChange={updateTable}
-        />
-        <input
-          type="text"
-          name="count"
-          placeholder="count"
-          onChange={updateTable}
-        />
-        <button onClick={() => editBooking(id)}>edit</button>
+      <div className="row justify-content-center mt-1">
+        <div className="col-2"></div>
+        <div className="col-2">
+          <input
+            type="date"
+            name="date"
+            placeholder="date"
+            onChange={updateTable}
+          />
+        </div>
+        <div className="col-2">
+          {" "}
+          <input
+            type="text"
+            name="time"
+            placeholder="time"
+            onChange={updateTable}
+          />
+        </div>
+        <div className="col-2">
+          <input
+            type="text"
+            name="count"
+            placeholder="count"
+            onChange={updateTable}
+          />
+        </div>
+        <div className="col-2"> </div>
+        <div className="col-2">
+          <button className="admninBtn" onClick={() => editBooking(id)}>
+            edit
+          </button>
+        </div>
       </div>
     );
   }
@@ -87,27 +100,44 @@ export default function Admin() {
   }
 
   return (
-    <div>
-      {msg}
-      <Filter sendData={getData} reset={getTableData}></Filter>
-      <ul>
-        {tableData.map((data: TableModel, index) => {
-          return (
-            <li key={index}>
-              id: {data.id} date: {data.date.toString().slice(0, 10)} time:{" "}
-              {data.time} count: {data.count} guestId: {data.guestId}
-              <button
-                onClick={() => {
-                  unbook(data.id);
-                }}
-              >
-                unbook
-              </button>
-              {edit(data.id)}
-            </li>
-          );
-        })}
-      </ul>
+    <div className="row justify-content-center">
+      <div className="col-12 mt-4 adminHeader">
+        <h2 className="adminHeaderText">Restaurang X</h2>
+      </div>
+      <div className="col-12">
+        <Filter sendData={getData} reset={getTableData}></Filter>
+      </div>
+      <div className="col-12 changedMsg">
+        <span>{msg}</span>
+      </div>
+
+      {tableData.map((data: TableModel, index) => {
+        return (
+          <div className="col-9">
+            <div className="row blackBorder mt-1" key={index}>
+              <div className="col-2">id: {data.id}</div>
+              <div className="col-2">
+                date: {data.date.toString().slice(0, 10)}
+              </div>
+              <div className="col-2">time: {data.time} </div>
+              <div className="col-2">count: {data.count}</div>
+              <div className="col-2"> guestId: {data.guestId}</div>
+              <div className="col-2">
+                <button
+                  className="admninBtn"
+                  onClick={() => {
+                    unbook(data.id);
+                  }}
+                >
+                  unbook
+                </button>
+              </div>
+            </div>
+
+            {edit(data.id)}
+          </div>
+        );
+      })}
     </div>
   );
 }
