@@ -11,12 +11,14 @@ function App() {
     <div className="container-fluid">
       <Router>
         <Switch>
-          
           <Route path="/admin">
             <Admin></Admin>
           </Route>
           <Route path="/booking">
             <Booking></Booking>
+          </Route>
+          <Route path="/cyal8ralig8r">
+            <Home></Home>
           </Route>
           <Route path="/">
             <Home></Home>

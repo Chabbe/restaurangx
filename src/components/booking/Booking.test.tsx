@@ -9,7 +9,7 @@ import Booking from "./Booking";
 // })
 
 test("Booking form should exist", () => {
-    const { container, getByPlaceholderText, getByLabelText } = render(<Booking/>);
+    const { container, getByPlaceholderText } = render(<Booking/>);
 
     let input = container.querySelectorAll("input");
 
@@ -35,27 +35,23 @@ test("Booking form should exist", () => {
     
 });
 
-test("Booking form functionality and post", () => {
-    const { container, getByPlaceholderText, getByLabelText } = render(<Booking/>);
+test("Booking form validation and functionality", () => {
+    const { getByPlaceholderText, container } = render(<Booking/>);
 
     let firstname = getByPlaceholderText("Firstname");
     let lastname = getByPlaceholderText("Lastname");
     let email = getByPlaceholderText("Email");
     let phonenr = getByPlaceholderText("Phone number");
-    // let error = container.querySelector("p");
 
     fireEvent.change(firstname, { target: { value: "Hej"}});
     fireEvent.change(lastname, { target: { value: "Baberiba"}});
     fireEvent.change(email, { target: { value: "homer@simpson.mi"}});
-    fireEvent.change(phonenr, { target: { value: "012345678"}});
+    fireEvent.change(phonenr, { target: { value: "123456789"}});
 
-    // expect(date).toHaveValue();
     expect(firstname).toHaveValue("Hej");
     expect(lastname).toHaveValue("Baberiba");
     expect(email).toHaveValue("homer@simpson.mi");
-    expect(phonenr).toHaveValue("012345678");
-    
-    // expect(error).toHaveValue("No zero in phonenr");
+    expect(phonenr).toHaveValue("123456789");
 
 
 
