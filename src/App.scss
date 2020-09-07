@@ -1,3 +1,14 @@
-@import "./components/home/bookingButton.scss";
-@import "./components/admin/admin.scss";
-@import "./components/filter/filter.scss"
+@import "./components/home/home.scss";
+@import "./components/booking/booking.scss";
+@import "./components/table/table.scss";
+@import "./components/guest/guest.scss";
+
+body {
+    margin: 0px;
+    overflow: hidden;
+    font-family: monospace;
+    #root {
+        
+    }
+   
+}

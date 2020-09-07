@@ -1,0 +1,253 @@
+@font-face {
+  font-family: "Neon80s";
+  src: url("../../assets/fonts/NEON\ ABSOLUTE\ SANS1.ttf");
+}
+
+$lightsOnShadow: 0 0 10px rgb(175, 238, 253), 0 0 20px rgb(81, 206, 255),
+  0 0 30px rgb(0, 110, 255);
+$lightsOn: #bceaff;
+
+$lightsFadeShadow: 0 0 10px rgba(175, 238, 253, 0.5),
+  0 0 20px rgba(81, 206, 255, 0.5), 0 0 30px rgba(0, 110, 255, 0.5);
+
+$lightsFade: #bceaff93;
+
+$lightsOff: rgba(212, 239, 255, 0.3);
+
+.backgroundWrapper {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-image: linear-gradient(
+    45deg,
+    rgb(29, 6, 47) 0%,
+    rgb(6, 29, 53) 100%
+  );
+
+  background-size: 200%;
+  animation-name: backgroundAnimation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  .align-self-center {
+    .row {
+      .restaurangx {
+        z-index: 1;
+        font-size: 170pt;
+        margin: auto;
+        color: $lightsOff;
+        text-shadow: none;
+        font-family: "Neon80s";
+        animation: lightsOn 750ms linear 1s 1 forwards normal;
+      }
+    }
+    .row {
+      a {
+        margin: auto;
+        text-decoration: none;
+
+        #booking-button {
+          width: 300pt;
+          text-align: center;
+          line-height: 70pt;
+          font-family: "neon80s";
+          height: 80pt;
+          color: white;
+          font-size: 25pt;
+          text-shadow: none;
+          border-radius: 20px;
+          border: solid rgba(161, 71, 71, 0.1) 10px;
+          box-sizing: border-box;
+          box-shadow: none;
+          transition: box-shadow 250ms, text-shadow 250ms, border 250ms;
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        #booking-button:hover {
+          color: white;
+          border: solid rgb(255, 255, 255) 10px;
+          text-shadow: 0 0 5px white, 0 0 10px rgb(255, 187, 246),
+            0 0 15px rgb(255, 132, 218), 0 0 20px rgb(255, 83, 198),
+            0 0 40px rgb(255, 31, 188), 0 0 60px rgb(255, 0, 179);
+
+          box-shadow: 0 0 5px white, 0 0 10px rgb(255, 187, 246),
+            0 0 15px rgb(255, 132, 218), 0 0 20px rgb(255, 83, 198),
+            0 0 40px rgb(255, 31, 188), 0 0 60px rgb(255, 0, 179),
+            inset 0 0 5px white, inset 0 0 10px rgb(255, 187, 246),
+            inset 0 0 15px rgb(255, 132, 218), inset 0 0 20px rgb(255, 83, 198),
+            inset 0 0 40px rgb(255, 31, 188), inset 0 0 60px rgb(255, 0, 179);
+        }
+      }
+    }
+  }
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 100%;
+  }
+}
+
+@keyframes lightsOn {
+  0% {
+    color: $lightsOff;
+    text-shadow: none;
+  }
+
+  10% {
+    color: $lightsFade;
+    text-shadow: $lightsFadeShadow;
+  }
+
+  11% {
+    color: $lightsOn;
+    text-shadow: $lightsOnShadow;
+  }
+
+  21% {
+    color: $lightsOn;
+    text-shadow: $lightsOnShadow;
+  }
+
+  22% {
+    color: $lightsFade;
+    text-shadow: $lightsFadeShadow;
+  }
+
+  35% {
+    color: $lightsFade;
+    text-shadow: $lightsFadeShadow;
+  }
+
+  36% {
+    color: $lightsOn;
+    text-shadow: $lightsOnShadow;
+  }
+
+  47% {
+    color: $lightsOn;
+    text-shadow: $lightsOnShadow;
+  }
+
+  48% {
+    color: $lightsFade;
+    text-shadow: $lightsFadeShadow;
+  }
+
+  60% {
+    color: $lightsFade;
+    text-shadow: $lightsFadeShadow;
+  }
+
+  61% {
+    color: $lightsOn;
+    text-shadow: $lightsOnShadow;
+  }
+
+  71% {
+    color: $lightsOn;
+    text-shadow: $lightsOnShadow;
+  }
+
+  72% {
+    color: $lightsFade;
+    text-shadow: $lightsFadeShadow;
+  }
+
+  81% {
+    color: $lightsFade;
+    text-shadow: $lightsFadeShadow;
+  }
+
+  82% {
+    color: $lightsOn;
+    text-shadow: $lightsOnShadow;
+  }
+
+  93% {
+    color: $lightsOn;
+    text-shadow: $lightsOnShadow;
+  }
+
+  94% {
+    color: $lightsFade;
+    text-shadow: $lightsFadeShadow;
+  }
+
+  100% {
+    color: $lightsOn;
+    text-shadow: $lightsOnShadow;
+  }
+}
+
+@keyframes Rflicker {
+  0% {
+    color: $lightsOn;
+    text-shadow: $lightsOnShadow;
+  }
+
+  1% {
+    color: $lightsOff;
+    text-shadow: none;
+  }
+
+  10% {
+    color: $lightsOff;
+    text-shadow: none;
+  }
+
+  11% {
+    color: $lightsOn;
+    text-shadow: $lightsOnShadow;
+  }
+
+  12% {
+    color: $lightsOff;
+    text-shadow: none;
+  }
+
+  49% {
+    color: $lightsOff;
+    text-shadow: none;
+  }
+
+  50% {
+    color: $lightsFade;
+    text-shadow: $lightsFadeShadow;
+  }
+
+  80% {
+    color: $lightsFade;
+    text-shadow: $lightsFadeShadow;
+  }
+
+  81% {
+    color: $lightsOff;
+    text-shadow: none;
+  }
+
+  98% {
+    color: $lightsOff;
+    text-shadow: none;
+  }
+
+  99% {
+    color: $lightsOn;
+    text-shadow: $lightsOnShadow;
+  }
+
+  100% {
+    color: $lightsOff;
+    text-shadow: none;
+  }
+}
