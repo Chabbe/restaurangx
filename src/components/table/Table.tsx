@@ -35,11 +35,12 @@ export default function Table(props: ITable) {
   })
 
   useEffect(() => {
+    console.log(tableObject)
     props.set(tableObject);
   }, [tableObject]);
 
   useEffect(() => {
-    tableObject.date = new Date(dateTable.year, dateTable.month - 1, dateTable.day)
+    tableObject.date = new Date(dateTable.year, dateTable.month-1, dateTable.day)
   }, [dateTable])
 
   useEffect(() => {
@@ -79,7 +80,7 @@ export default function Table(props: ITable) {
   function updateDate(event: ChangeEvent<HTMLInputElement>) {
     setDateTable({
       ...dateTable,
-      [event.target.name]: event.target.value
+      [event.target.name]: parseInt(event.target.value)
     });
   }
 
@@ -158,7 +159,6 @@ export default function Table(props: ITable) {
       <div className="row count justify-content-center">
         <h1>How many?</h1>
         <label>
-          Count
           <select name="count" value={tableObject.count} onChange={updateTable}>
             <option>1</option>
             <option>2</option>
@@ -175,7 +175,7 @@ export default function Table(props: ITable) {
           </select>
         </label>
       </div>
-      <button className="bookButton" type="button" onClick={props.next}>booka</button>
+      <button className="book-button" type="button" onClick={props.next}>Book table</button>
     </div>
   );
 }
