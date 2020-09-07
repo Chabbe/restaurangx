@@ -153,13 +153,15 @@ export default function Guest(props: IGuest) {
           </label>
         </div>
       </div>
-      <button
-        type="button"
-        className="btn btn-secondary"
-        onClick={postReservation}
-      >
-        Make a reservation
-      </button>
+      <Link to="/cyal8ralig8r">
+        <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={postReservation}
+          >
+            Make a reservation
+          </button>
+        </Link>
     </div>
   );
 }

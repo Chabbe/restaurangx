@@ -3,29 +3,36 @@
     src: url("../../assets/fonts/NEON\ ABSOLUTE\ SANS1.ttf");
   }
 
-.text-wrapper {
-    h1{
-        font-family: "Neon80s";
-        margin-bottom: 25px;
-        text-shadow: 0 0 5px white, 0 0 10px rgb(255, 187, 246),
-            0 0 15px rgb(255, 132, 218), 0 0 20px rgb(255, 83, 198),
-            0 0 40px rgb(255, 31, 188), 0 0 60px rgb(255, 0, 179);
+$ty-color: 0 0 5px white, 0 0 10px rgb(255, 187, 246),
+0 0 15px rgb(255, 132, 218), 0 0 20px rgb(255, 83, 198),
+0 0 40px rgb(255, 31, 188), 0 0 60px rgb(255, 0, 179);
 
-          box-shadow: 0 0 5px white, 0 0 10px rgb(255, 187, 246),
-            0 0 15px rgb(255, 132, 218), 0 0 20px rgb(255, 83, 198),
-            0 0 40px rgb(255, 31, 188), 0 0 60px rgb(255, 0, 179),
-            inset 0 0 5px white, inset 0 0 10px rgb(255, 187, 246),
-            inset 0 0 15px rgb(255, 132, 218), inset 0 0 20px rgb(255, 83, 198),
-            inset 0 0 40px rgb(255, 31, 188), inset 0 0 60px rgb(255, 0, 179);
+.ty-page {
+    background-image: url("../../assets/img/SilkyGloriousInsect.webp");
+}
+.text-wrapper {
+    height: 100vh;
+    h1{
+        margin-top: 150px;
+        z-index: 1;
+        font-size: 77pt;
+        font-weight: 700;
+        text-shadow: $ty-color;
+        color: rgb(255, 220, 250);
+        font-family: "Neon80s";
     }
     .email-info {
         font-family: monospace;
         font-size: 1.5rem;
+        font-weight: 900;
+        background-color: white;
         
     }
     .changes-info{
         font-family: monospace;
         font-size: 1rem;
+        font-weight: 700;
+        background-color: white;
     }
 }
 
