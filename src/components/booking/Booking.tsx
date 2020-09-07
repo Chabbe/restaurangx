@@ -10,17 +10,21 @@ export default function Booking() {
   const [guests, setGuests] = useState({});
   const [availabilityMsg, setAvailabilityMsg] = useState("");
   const [validationMsg, setValidationMsg] = useState("");
+  const [scrollClass,  setScrollClass] = useState("")
 
   function postTable(guestId: number) {
     axios
       .post("http://localhost:8000/table", { tables, guestId })
-      .then((res) => {});
+      .then((res) => { });
   }
+
   function setGuest(guestObject: GuestModel) {
     setGuests(guestObject);
   }
 
   function setTable(tableObject: TableModel) {
+
+
     setTables(tableObject);
     if (tableObject.time > 0) checkAvailability(tableObject);
   }
@@ -30,18 +34,15 @@ export default function Booking() {
       .post("http://localhost:8000/availability", tableObject)
       .then((res) => {
         if (!res.data.success) {
-          if (res.data.othersuccess) {
+          if (res.data.othersuccess)
             setAvailabilityMsg(
-              "Fullbokat men ledigt på " +
-                (tableObject.time === 21 ? 18 : 21) +
-                ":00"
+              "Overbooked but available at " +
+              (tableObject.time === 21 ? 18 : 21) +
+              ":00"
             );
-          } else {
-            setAvailabilityMsg("Fullbokat");
-          }
-        } else {
-          setAvailabilityMsg("Ledigt, välkommen att boka");
-        }
+          else setAvailabilityMsg("Overbooked");
+        } else setAvailabilityMsg("Time available");
+
       });
   }
 
@@ -68,18 +69,26 @@ export default function Booking() {
     axios.post("http://localhost:8000/deleteall");
   }
 
+  
+  function next() {
+    setScrollClass("scroll")
+  }
+  function back() {
+    setScrollClass("scrollBack")
+  }
   return (
-    <div className="container-fluid p-0">
+    <div className={scrollClass + " container-fluid p-0"}>
       <div className="row justify-content-center p-0">
         <form className="form col-sm-12 col-md-12 col-lg-12 p-0">
-          <Table set={setTable} setValidation={setValidationMsg}></Table>
+          <Table set={setTable} overbooked={availabilityMsg} next={next}></Table>
           <Guest
             post={makeReservation}
             setValidation={setValidationMsg}
             set={setGuest}
-            ></Guest>
-            <p>{availabilityMsg}</p>
-            <p>{validationMsg}</p>
+            back={back}
+          ></Guest>
+          <p>{availabilityMsg}</p>
+          <p>{validationMsg}</p>
           <div className="mt-5">
             <button
               type="button"

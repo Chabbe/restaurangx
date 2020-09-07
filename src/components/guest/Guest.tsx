@@ -6,6 +6,7 @@ interface IGuest {
   set: (guestObject: GuestModel) => void;
   post: (guestObject: GuestModel) => void;
   setValidation: (message: string) => void;
+  back: () => void;
 }
 
 export default function Guest(props: IGuest) {
@@ -85,7 +86,8 @@ export default function Guest(props: IGuest) {
   }
 
   return (
-    <div className="col-12 bg-light p-3 m-0">
+    <div className="guest col-12 p-3 m-0">
+    <button type="button" onClick={props.back}>change when?</button>
       <div className="form-row">
         <div className="form-group col-12">
           <input
