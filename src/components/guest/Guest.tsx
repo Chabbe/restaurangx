@@ -17,6 +17,13 @@ export default function Guest(props: IGuest) {
     phonenr: 0,
   });
 
+  const [err, setErr] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    phonenr: ""
+  })
+
   useEffect(() => {
     props.set(guestObject);
   }, [guestObject, props]);
@@ -34,42 +41,128 @@ export default function Guest(props: IGuest) {
   function validate(event: ChangeEvent<HTMLInputElement>) {
     switch (event.target.name) {
       case "firstname":
-        if (event.target.value === "")
+        if (event.target.value === "") {
+
           props.setValidation("firstname is required");
-        else if (event.target.value.length < 2)
+          setErr({
+            ...err,
+            firstname: "error"
+          })
+        }
+        else if (event.target.value.length < 2) {
           props.setValidation("firstname is invalid");
-        else if (/\d/.test(event.target.value))
+          setErr({
+            ...err,
+            firstname: "error"
+          })
+        }
+        else if (/\d/.test(event.target.value)) {
+          setErr({
+            ...err,
+            firstname: "error"
+          })
           props.setValidation("firstname can't include numbers");
-        else props.setValidation("");
+        }
+        else {
+          setErr({
+            ...err,
+            firstname: ""
+          })
+          props.setValidation("")
+        };
         break;
       case "lastname":
-        if (event.target.value === "")
+        if (event.target.value === "") {
+          setErr({
+            ...err,
+            lastname: "error"
+          })
           props.setValidation("lastname is required");
-        else if (event.target.value.length < 2)
+        }
+        else if (event.target.value.length < 2) {
+          setErr({
+            ...err,
+            lastname: "error"
+          })
           props.setValidation("lastname is invalid");
-        else if (/\d/.test(event.target.value))
+        }
+        else if (/\d/.test(event.target.value)) {
+          setErr({
+            ...err,
+            lastname: "error"
+          })
           props.setValidation("lastname can't include numbers");
-        else props.setValidation("");
+        }
+        else {
+          setErr({
+            ...err,
+            lastname: ""
+          })
+          props.setValidation("");
+        }
         break;
       case "email":
-        if (event.target.value === "") props.setValidation("email is required");
+        if (event.target.value === "") {
+          setErr({
+            ...err,
+            email: "error"
+          })
+          props.setValidation("email is required");
+        }
         else if (
           !event.target.value.includes("@") ||
           !event.target.value.includes(".")
-        )
+        ) {
+          setErr({
+            ...err,
+            email: "error"
+          })
           props.setValidation("email is invalid");
-        else props.setValidation("");
+        }
+        else {
+          setErr({
+            ...err,
+            email: ""
+          })
+          props.setValidation("")
+        };
         break;
       case "phonenr":
-        if (event.target.value === "")
+        if (event.target.value === "") {
+          setErr({
+            ...err,
+            phonenr: "error"
+          })
           props.setValidation("phonenumber is required");
-        else if (event.target.value.length < 9 || event.target.value.length > 9)
+        }
+        else if (event.target.value.length < 9 || event.target.value.length > 9) {
+          setErr({
+            ...err,
+            phonenr: "error"
+          })
           props.setValidation("phonenumber is invalid");
-        else if (/[a-zA-Z]/g.test(event.target.value))
+        }
+        else if (/[a-zA-Z]/g.test(event.target.value)) {
+          setErr({
+            ...err,
+            phonenr: "error"
+          })
           props.setValidation("phonenumber can't include letters");
-        else if (event.target.value[0].includes("0"))
+        }
+        else if (event.target.value[0].includes("0")) {
+          setErr({
+            ...err,
+            phonenr: "error"
+          })
           props.setValidation("phonenumber can't start with 0");
-        else props.setValidation("");
+        }
+        else {
+          setErr({
+            ...err,
+            phonenr: ""
+          })
+          props.setValidation("");
+        } 
         break;
       case "gdpr":
         if (!event.target.checked)
@@ -86,68 +179,62 @@ export default function Guest(props: IGuest) {
   }
 
   return (
-    <div className="guest col-12 p-3 m-0">
-    <button type="button" onClick={props.back}>change when?</button>
-      <div className="form-row">
-        <div className="form-group col-12">
-          <input
-            type="text"
-            name="firstname"
-            placeholder="Firstname"
-            className="form-control"
-            onChange={updateGuest}
-            onBlur={validate}
-          />
-        </div>
+    <div className="guest col-12 p-0 m-0">
+      <button className="goback-button" type="button" onClick={props.back}>change when?</button>
+      <div className="form-row firstname input-row">
+        <input
+          type="text"
+          name="firstname"
+          placeholder="Firstname "
+          className={err.firstname + " form-control firstnameInput input-text"}
+          onChange={updateGuest}
+          onBlur={validate}
+        />
+
       </div>
-      <div className="form-row">
-        <div className="form-group col-12">
-          <input
-            type="text"
-            name="lastname"
-            placeholder="Lastname"
-            className="form-control"
-            onChange={updateGuest}
-            onBlur={validate}
-          />
-        </div>
+      <div className="form-row lastname input-row">
+        <input
+          type="text"
+          name="lastname"
+          placeholder="Lastname"
+          className={err.lastname + " form-control lastnameInput input-text"}
+          onChange={updateGuest}
+          onBlur={validate}
+        />
       </div>
-      <div className="form-row">
-        <div className="form-group col-12">
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            className="form-control"
-            onChange={updateGuest}
-            onBlur={validate}
-          />
-        </div>
+      <div className="form-row email input-row">
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          className={err.email + " form-control emailInput input-text"}
+          onChange={updateGuest}
+          onBlur={validate}
+        />
       </div>
-      <div className="form-row">
-        <div className="form-group col-1" id="phoneprefix">
-          +46
-        </div>
+      <div className="form-row phone input-row">
+
         <input
           type="tel"
           name="phonenr"
-          placeholder="Phone number"
-          className="form-control form-group col-11"
+          placeholder="+46 phone number"
+          className={err.phonenr + " form-control phoneInput input-text  form-group"}
           onChange={updateGuest}
           onBlur={validate}
         />
       </div>
 
       <div className="form-group">
-        <div className="form-check">
-          <label htmlFor="gdprCheck" className="form-check-label">
+        <div className="form-check gdprwrapper">
+          <label htmlFor="gdprCheck" className="form-check-label checkboxLabel">
             <input
-              className="form-check-input"
+              className="form-check-input gdprcheckbox"
               type="checkbox"
               id="gdprCheck"
               name="gdpr"
               onBlur={validate}
-            ></input>
+            />
+            <span className="checkbox"></span>
             Jag godkänner hanteringeringen av mina personuppgifter
           </label>
         </div>

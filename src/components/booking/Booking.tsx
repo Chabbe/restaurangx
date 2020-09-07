@@ -4,6 +4,7 @@ import Guest from "../guest/Guest";
 import Table from "../table/Table";
 import TableModel from "../../models/tableModel";
 import GuestModel from "../../models/guestModel";
+import { table } from "console";
 
 export default function Booking() {
   const [tables, setTables] = useState({});
@@ -23,8 +24,7 @@ export default function Booking() {
   }
 
   function setTable(tableObject: TableModel) {
-
-
+    console.log(tableObject)
     setTables(tableObject);
     if (tableObject.time > 0) checkAvailability(tableObject);
   }
@@ -48,12 +48,11 @@ export default function Booking() {
 
   function makeReservation(guestObject: GuestModel) {
     if (
-      validationMsg !== "" ||
-      availabilityMsg !== "Ledigt, välkommen att boka"
+      validationMsg !== "" 
     )
       return;
 
-    console.log("Reservation made");
+    console.log("Reservation made", tables);
     setGuest(guestObject);
 
     axios.post("http://localhost:8000/availability", tables).then((res) => {
@@ -77,7 +76,7 @@ export default function Booking() {
     setScrollClass("scrollBack")
   }
   return (
-    <div className={scrollClass + " container-fluid p-0"}>
+    <div className={scrollClass + " container-fluid p-0 booking"}>
       <div className="row justify-content-center p-0">
         <form className="form col-sm-12 col-md-12 col-lg-12 p-0">
           <Table set={setTable} overbooked={availabilityMsg} next={next}></Table>

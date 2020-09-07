@@ -1,9 +1,9 @@
 .table {
     height: 100vh;
-    padding: 5vh 0;
+    padding: 0;
+    width:100%;
+    margin-bottom: 0;
     .date {
-
-
         background-size: 200%;
         height: 30vh;
        
@@ -22,11 +22,12 @@
             color: white;
             margin: auto 0;
         }
-
+        
         h1 {
+            color:white;
             margin: auto 0;
         }
-
+        
         .dateInput {
             margin: auto 10px;
             appearance: none;
@@ -43,43 +44,44 @@
             color: white;
             text-align: center;
         }
-
-
-
+        
+        
+        
         .dateInput:nth-child(2) {
             width: 175px;
-
+            
             // border-top-left-radius: 20px;
             // padding-right: 0px;
             // border-bottom-left-radius: 20px;
         }
-
-
+        
+        
     }
-
+    
     .times {
-     
+        
         background-size: 200%;
         height: 30vh;
-       
-
+        
+        
         margin: 0;
         padding-right: 90px;
-
+        
         h1 {
+            color:white;
             margin: auto 0;
-
+            
         }
-
+        
         label {
             font-size: 25pt;
             display: block;
             position: relative;
             padding-left: 0px;
             line-height: 60px;
-            color: rgb(92, 92, 92);
+            color: white;
             margin: auto 100px;
-
+            
             .timeInput {
                 position: absolute;
                 opacity: 0;
@@ -88,15 +90,15 @@
                 top: 0;
                 left: 0px;
             }
-
+            
             .timeInput:checked~.checkbox {
                 background-color: rgb(255, 255, 255);
             }
-
+            
             .timeInput:checked~.checkbox::after {
                 display: block;
             }
-
+            
             .checkbox {
                 position: absolute;
                 top: 0;
@@ -106,7 +108,7 @@
                 background-color: rgb(255, 255, 255);
                 border-radius: 50%;
             }
-
+            
             .checkbox::after {
                 position: absolute;
                 content: "";
@@ -114,7 +116,7 @@
                 background-image: url("../../assets/img/pizza.png");
                 background-size: contain;
                 background-origin: content-box;
-
+                
                 height: 50px;
                 width: 50px;
                 border-radius: 50%;
@@ -123,13 +125,14 @@
             }
         }
     }
-
+    
     .count {
-
+        
         height: 30vh;
         margin: 0;
         h1 {
             margin:auto 0;
+            color:white;    
         }
         label {
             margin:auto 0;
@@ -157,5 +160,16 @@
 
 
         }
+    }
+    .book-button {
+        appearance: none;
+        border:none;
+        width:20%;
+        height:50px;
+        font-size:26pt;
+        font-family: monospace;
+        margin:0 auto;
+        display:block;
+
     }
 }
