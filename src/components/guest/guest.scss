@@ -3,6 +3,18 @@
     height: 100vh;
     padding: 0;
 
+    #validation-msg {
+        color: white;
+        text-shadow: 0 0 2px rgb(255, 201, 201),
+            0 0 5px rgb(255, 144, 144),
+            0 0 10px rgb(255, 98, 98),
+            0 0 15px rgb(255, 58, 58),
+            0 0 30px red;
+        font-size: 20pt;
+        text-align: center;
+
+    }
+
     .goback-button {
         appearance: none;
         border: none;
@@ -34,29 +46,70 @@
         }
 
         .error {
-            border:2px solid white;
+            border: 2px solid white;
             box-shadow: 0 0 5px white, 0 0 10px rgb(255, 187, 187),
-            0 0 15px rgb(255, 132, 132), 0 0 20px rgb(255, 83, 83),
-            0 0 40px rgb(255, 31, 31), 0 0 60px rgb(255, 0, 0),
-            inset 0 0 5px white, inset 0 0 10px rgb(255, 187, 187),
-            inset 0 0 15px rgb(255, 132, 132), inset 0 0 20px rgb(255, 83, 83),
-            inset 0 0 40px rgb(255, 31, 31), inset 0 0 60px rgb(255, 0, 0);
+                0 0 15px rgb(255, 132, 132), 0 0 20px rgb(255, 83, 83),
+                0 0 40px rgb(255, 31, 31), 0 0 60px rgb(255, 0, 0),
+                inset 0 0 5px white, inset 0 0 10px rgb(255, 187, 187),
+                inset 0 0 15px rgb(255, 132, 132), inset 0 0 20px rgb(255, 83, 83),
+                inset 0 0 40px rgb(255, 31, 31), inset 0 0 60px rgb(255, 0, 0);
         }
     }
 
     .form-group {
         .gdprwrapper {
             width: 100%;
+
             text-align: center;
 
             .checkboxLabel {
                 font-size: 20pt;
                 color: white;
-                margin: auto;
 
-                .gdprcheckbox {}
+                .gdprcheckbox {
+                    appearance: none;
+                    border: 5px solid white;
+                    width: 60px;
+                    height: 60px;
+                    outline: none;
+                    box-sizing: border-box;
+                }
+
+                .gdprcheckbox:checked {
+                    border: 5px solid white;
+                    box-shadow:
+                        0 0 5px rgb(224, 255, 233),
+                        0 0 7px rgb(176, 255, 198),
+                        0 0 12px rgb(113, 255, 153),
+                        0 0 20px rgb(55, 255, 112),
+                        0 0 30px rgb(6, 255, 76),
+                        inset 0 0 5px rgb(224, 255, 233),
+                        inset 0 0 7px rgb(176, 255, 198),
+                        inset 0 0 12px rgb(113, 255, 153),
+                        inset 0 0 20px rgb(55, 255, 112),
+                        inset 0 0 30px rgb(6, 255, 76);
+
+                }
+
+                span {
+                    margin-left: 60px;
+                    line-height: 60px;
+                }
             }
         }
     }
-
+    a { 
+        text-decoration: none;
+        .make-reservation {
+            border: none;
+            background: white;
+            appearance: none;
+            width: 20%;
+            height: 50px;
+            font-size: 26pt;
+            font-family: monospace;
+            margin: 0 auto;
+            display: block;
+        }
+    }
 }
