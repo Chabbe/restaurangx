@@ -1,3 +1,19 @@
+$accept-shadow: 0 0 5px rgb(141, 255, 126), 0 0 10px rgb(100, 255, 79),
+0 0 20px rgb(77, 255, 54),
+inset 0 0 10px rgb(141, 255, 126),
+inset 0 0 15px rgb(100, 255, 79), 
+inset 0 0 20px rgb(77, 255, 54);
+$accept-shadow-fade: 
+0 0 5px rgba(141, 255, 126, 0.5), 
+0 0 10px rgba(100, 255, 79, 0.5),
+0 0 20px rgba(77, 255, 54, 0.5),
+inset 0 0 5px white, 
+inset 0 0 10px rgba(141, 255, 126, 0.5),
+inset 0 0 15px rgba(100, 255, 79, 0.5), 
+inset 0 0 20px rgba(77, 255, 54, 0.5);
+
+
+
 .guest {
     background-color: rgb(0, 0, 0);
     height: 100vh;
@@ -53,6 +69,9 @@
                 inset 0 0 5px white, inset 0 0 10px rgb(255, 187, 187),
                 inset 0 0 15px rgb(255, 132, 132), inset 0 0 20px rgb(255, 83, 83),
                 inset 0 0 40px rgb(255, 31, 31), inset 0 0 60px rgb(255, 0, 0);
+        }
+        .accepted-input{
+            animation: accept-lights 1000ms forwards;     
         }
     }
 
@@ -112,4 +131,37 @@
             display: block;
         }
     }
+}
+
+
+@keyframes accept-lights {
+    0% {
+      box-shadow: none;
+    }
+  
+    10% {
+      box-shadow: $accept-shadow-fade;
+    }
+
+    15% {
+        box-shadow: $accept-shadow;
+    }
+
+    25% {
+        box-shadow: $accept-shadow-fade;
+      }
+
+    35% {
+        box-shadow: $accept-shadow;
+    }
+
+    80% {
+        box-shadow: $accept-shadow-fade;
+    }
+
+    100% {
+        border: solid 2px white;
+        box-shadow: $accept-shadow-fade;
+    }
+
 }

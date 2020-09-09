@@ -64,10 +64,17 @@ export default function Guest(props: IGuest) {
         } else {
           setErr({
             ...err,
+<<<<<<< HEAD
             firstname: "",
           });
           props.setValidation("");
         }
+=======
+            firstname: "accepted-input"
+          })
+          props.setValidation("")
+        };
+>>>>>>> f444ed03ba672782cd567e17e9186461240ccad5
         break;
       case "lastname":
         if (event.target.value === "") {
@@ -91,8 +98,13 @@ export default function Guest(props: IGuest) {
         } else {
           setErr({
             ...err,
+<<<<<<< HEAD
             lastname: "",
           });
+=======
+            lastname: "accepted-input"
+          })
+>>>>>>> f444ed03ba672782cd567e17e9186461240ccad5
           props.setValidation("");
         }
         break;
@@ -115,10 +127,17 @@ export default function Guest(props: IGuest) {
         } else {
           setErr({
             ...err,
+<<<<<<< HEAD
             email: "",
           });
           props.setValidation("");
         }
+=======
+            email: "accepted-input"
+          })
+          props.setValidation("")
+        };
+>>>>>>> f444ed03ba672782cd567e17e9186461240ccad5
         break;
       case "phonenr":
         if (event.target.value === "") {
@@ -151,8 +170,13 @@ export default function Guest(props: IGuest) {
         } else {
           setErr({
             ...err,
+<<<<<<< HEAD
             phonenr: "",
           });
+=======
+            phonenr: "accepted-input"
+          })
+>>>>>>> f444ed03ba672782cd567e17e9186461240ccad5
           props.setValidation("");
         }
         break;
