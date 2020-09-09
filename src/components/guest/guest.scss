@@ -18,7 +18,9 @@ inset 0 0 20px rgba(77, 255, 54, 0.5);
     background-color: rgb(0, 0, 0);
     height: 100vh;
     padding: 0;
-
+    .form-row {
+        margin:0;
+    }
     #validation-msg {
         color: white;
         text-shadow: 0 0 2px rgb(255, 201, 201),
@@ -115,20 +117,6 @@ inset 0 0 20px rgba(77, 255, 54, 0.5);
                     line-height: 60px;
                 }
             }
-        }
-    }
-    a { 
-        text-decoration: none;
-        .make-reservation {
-            border: none;
-            background: white;
-            appearance: none;
-            width: 20%;
-            height: 50px;
-            font-size: 26pt;
-            font-family: monospace;
-            margin: 0 auto;
-            display: block;
         }
     }
 }

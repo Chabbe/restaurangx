@@ -1,13 +1,14 @@
 import React, { useState, ChangeEvent, useEffect } from "react";
 import GuestModel from "../../models/guestModel";
-import { Link } from "react-router-dom";
 
 interface IGuest {
   // data: GuestModel[];
   set: (guestObject: GuestModel) => void;
-  post: (guestObject: GuestModel) => void;
+
   setValidation: (message: string) => void;
-  back: () => void;
+  setguestValid: (boolean: boolean) => void;
+  setGPDR: (boolean:boolean) => void;
+
   msg: string;
 }
 
@@ -28,7 +29,7 @@ export default function Guest(props: IGuest) {
 
   useEffect(() => {
     props.set(guestObject);
-  }, [guestObject, props]);
+  }, [guestObject]);
 
   function updateGuest(event: ChangeEvent<HTMLInputElement>) {
     setGuestObject({
@@ -39,6 +40,18 @@ export default function Guest(props: IGuest) {
           : event.target.value,
     });
   }
+
+  useEffect(() => {
+    if (err.firstname !== "accepted-input") {
+      props.setguestValid(false);
+    } else if (err.email !== "accepted-input") {
+      props.setguestValid(false);
+    } else if (err.lastname !== "accepted-input") {
+      props.setguestValid(false);
+    } else if (err.phonenr !== "accepted-input") {
+      props.setguestValid(false);
+    } else props.setguestValid(true);
+  }, [err]);
 
   function validate(event: ChangeEvent<HTMLInputElement>) {
     switch (event.target.name) {
@@ -60,21 +73,15 @@ export default function Guest(props: IGuest) {
             ...err,
             firstname: "error",
           });
+
           props.setValidation("firstname can't include numbers");
         } else {
           setErr({
             ...err,
-<<<<<<< HEAD
-            firstname: "",
+            firstname: "accepted-input",
           });
           props.setValidation("");
         }
-=======
-            firstname: "accepted-input"
-          })
-          props.setValidation("")
-        };
->>>>>>> f444ed03ba672782cd567e17e9186461240ccad5
         break;
       case "lastname":
         if (event.target.value === "") {
@@ -82,29 +89,28 @@ export default function Guest(props: IGuest) {
             ...err,
             lastname: "error",
           });
+
           props.setValidation("lastname is required");
         } else if (event.target.value.length < 2) {
           setErr({
             ...err,
             lastname: "error",
           });
+
           props.setValidation("lastname is invalid");
         } else if (/\d/.test(event.target.value)) {
           setErr({
             ...err,
             lastname: "error",
           });
+
           props.setValidation("lastname can't include numbers");
         } else {
           setErr({
             ...err,
-<<<<<<< HEAD
-            lastname: "",
+            lastname: "accepted-input",
           });
-=======
-            lastname: "accepted-input"
-          })
->>>>>>> f444ed03ba672782cd567e17e9186461240ccad5
+
           props.setValidation("");
         }
         break;
@@ -114,6 +120,7 @@ export default function Guest(props: IGuest) {
             ...err,
             email: "error",
           });
+
           props.setValidation("email is required");
         } else if (
           !event.target.value.includes("@") ||
@@ -127,17 +134,10 @@ export default function Guest(props: IGuest) {
         } else {
           setErr({
             ...err,
-<<<<<<< HEAD
-            email: "",
+            email: "accepted-input",
           });
           props.setValidation("");
         }
-=======
-            email: "accepted-input"
-          })
-          props.setValidation("")
-        };
->>>>>>> f444ed03ba672782cd567e17e9186461240ccad5
         break;
       case "phonenr":
         if (event.target.value === "") {
@@ -170,33 +170,28 @@ export default function Guest(props: IGuest) {
         } else {
           setErr({
             ...err,
-<<<<<<< HEAD
-            phonenr: "",
+            phonenr: "accepted-input",
           });
-=======
-            phonenr: "accepted-input"
-          })
->>>>>>> f444ed03ba672782cd567e17e9186461240ccad5
           props.setValidation("");
         }
         break;
       case "gdpr":
-        if (!event.target.checked)
+        if (!event.target.checked) {
           props.setValidation("You have to accept to GDPR");
-        else props.setValidation("");
+          props.setGPDR(false);
+        } else {
+          props.setValidation("");
+          props.setGPDR(true);
+        }
         break;
       default:
         props.setValidation("");
     }
   }
 
-  function postReservation() {
-    props.post(guestObject);
-  }
-
   return (
     <div className="guest col-12 p-0 m-0">
-      <button className="goback-button" type="button" onClick={props.back}>
+      <button className="goback-button" type="button">
         change when?
       </button>
       <div id="validation-msg">
@@ -253,21 +248,12 @@ export default function Guest(props: IGuest) {
               type="checkbox"
               id="gdprCheck"
               name="gdpr"
-              onBlur={validate}
+              onChange={validate}
             />
             <span>Jag godkänner hanteringeringen av mina personuppgifter</span>
           </label>
         </div>
       </div>
-      <Link to="/cyal8ralig8r">
-        <button
-          type="button"
-          className="make-reservation"
-          onClick={postReservation}
-        >
-          Make a reservation
-        </button>
-      </Link>
     </div>
   );
 }

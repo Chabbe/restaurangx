@@ -4,48 +4,49 @@ import TableModel from "../../models/tableModel";
 interface ITable {
   set: (tableObject: TableModel) => void;
   overbooked: string;
-  next: () => void;
-
 }
 
 export default function Table(props: ITable) {
   const [dateValidation, setDateValidation] = useState({
     validMsg: "",
-    valid: false
-  })
+    valid: false,
+  });
 
   const [dateBlur, setDateBlur] = useState({
     year: false,
     month: false,
-    day: false
-  })
+    day: false,
+  });
 
   const [tableObject, setTableObject] = useState({
     date: new Date(),
     time: 0,
-    count: 0,
+    count: 1,
     id: 0,
-    guestId: 0
+    guestId: 0,
   });
 
   const [dateTable, setDateTable] = useState({
     year: 0,
     month: 0,
-    day: 0
-  })
+    day: 0,
+  });
 
   useEffect(() => {
-    console.log(tableObject)
     props.set(tableObject);
   }, [tableObject]);
 
   useEffect(() => {
-    tableObject.date = new Date(dateTable.year, dateTable.month-1, dateTable.day)
-  }, [dateTable])
+    tableObject.date = new Date(
+      dateTable.year,
+      dateTable.month - 1,
+      dateTable.day + 1
+    );
+  }, [dateTable]);
 
   useEffect(() => {
     for (const [key, value] of Object.entries(dateBlur)) {
-      if (!value) return
+      if (!value) return;
     }
 
     const currentDate = new Date().toDateString().slice(4, 15);
@@ -53,13 +54,9 @@ export default function Table(props: ITable) {
     const selectedDate = new Date(tableObject.date);
 
     if (selectedDate < new Date(currentDate))
-
-      setDateValidation({ validMsg: "invalid date", valid: false })
-
-    else
-      setDateValidation({ validMsg: "", valid: true })
-
-  }, [dateBlur])
+      setDateValidation({ validMsg: "invalid date", valid: false });
+    else setDateValidation({ validMsg: "", valid: true });
+  }, [dateBlur]);
 
   function checkDate(event: KeyboardEvent<HTMLInputElement>) {
     if (!/\d/.test(event.key)) {
@@ -69,26 +66,24 @@ export default function Table(props: ITable) {
   }
 
   function updateTable(event: ChangeEvent<any>) {
-    
     setTableObject({
       ...tableObject,
-      [event.target.name]:
-        parseInt(event.target.value),
+      [event.target.name]: parseInt(event.target.value),
     });
   }
 
   function updateDate(event: ChangeEvent<HTMLInputElement>) {
     setDateTable({
       ...dateTable,
-      [event.target.name]: parseInt(event.target.value)
+      [event.target.name]: parseInt(event.target.value),
     });
   }
 
   function validation(event: ChangeEvent<HTMLInputElement>) {
     setDateBlur({
       ...dateBlur,
-      [event.target.name]: true
-    })
+      [event.target.name]: true,
+    });
   }
 
   return (
@@ -105,17 +100,23 @@ export default function Table(props: ITable) {
           onChange={updateDate}
           onBlur={validation}
           autoComplete="none"
-        /><p>-</p>
+        />
+        <p>-</p>
         <input
           type="text"
           name="month"
           className="dateInput"
-          placeholder={(new Date().getMonth() + 1) < 10 ? "0" + (new Date().getMonth() + 1).toString() : (new Date().getMonth() + 1).toString()}
+          placeholder={
+            new Date().getMonth() + 1 < 10
+              ? "0" + (new Date().getMonth() + 1).toString()
+              : (new Date().getMonth() + 1).toString()
+          }
           onKeyPress={checkDate}
           onChange={updateDate}
           onBlur={validation}
           autoComplete="none"
-        /><p>-</p>
+        />
+        <p>-</p>
         <input
           type="text"
           name="day"
@@ -175,7 +176,9 @@ export default function Table(props: ITable) {
           </select>
         </label>
       </div>
-      <button className="book-button" type="button" onClick={props.next}>Book table</button>
+      <button className="book-button" type="button">
+        Book table
+      </button>
     </div>
   );
 }
