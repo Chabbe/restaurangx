@@ -15,7 +15,7 @@ export default function Booking() {
 
   const [guestValid, setGuestValid] = useState(false);
   const [allValid, setAllValid] = useState(false);
-  const [gdpr, setGDPR] = useState(false)
+  const [gdpr, setGDPR] = useState(false);
 
   function postTable(guestId: number) {
     axios
@@ -66,7 +66,8 @@ export default function Booking() {
   }
 
   useEffect(() => {
-    if (guestValid && availabilityMsg === "Time available" && gdpr) setAllValid(true);
+    if (guestValid && availabilityMsg === "Time available" && gdpr)
+      setAllValid(true);
     else setAllValid(false);
   });
 
@@ -85,14 +86,15 @@ export default function Booking() {
             setguestValid={setGuestValid}
             setGPDR={setGDPR}
           ></Guest>
-
-          <button
-            type="submit"
-            className="make-reservation"
-            disabled={!allValid}
-          >
-            Make a reservation
-          </button>
+          <div className="reservation-wrapper">
+            <button
+              type="submit"
+              className="make-reservation"
+              disabled={!allValid}
+            >
+              Make a reservation
+            </button>
+          </div>
         </form>
       </div>
     </div>
