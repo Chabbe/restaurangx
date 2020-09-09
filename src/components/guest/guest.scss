@@ -89,7 +89,7 @@ inset 0 0 20px rgba(77, 255, 54, 0.5);
 
                 .gdprcheckbox {
                     appearance: none;
-                    border: 5px solid white;
+                    border: 3px solid white;
                     width: 60px;
                     height: 60px;
                     outline: none;
@@ -97,19 +97,17 @@ inset 0 0 20px rgba(77, 255, 54, 0.5);
                 }
 
                 .gdprcheckbox:checked {
+                    transition: 1s;
                     border: 5px solid white;
                     box-shadow:
-                        0 0 5px rgb(224, 255, 233),
-                        0 0 7px rgb(176, 255, 198),
-                        0 0 12px rgb(113, 255, 153),
+                        0 0 3px rgb(224, 255, 233),
+                        0 0 5px rgb(176, 255, 198),
+                        0 0 10px rgb(113, 255, 153),
                         0 0 20px rgb(55, 255, 112),
-                        0 0 30px rgb(6, 255, 76),
-                        inset 0 0 5px rgb(224, 255, 233),
-                        inset 0 0 7px rgb(176, 255, 198),
-                        inset 0 0 12px rgb(113, 255, 153),
+                        inset 0 0 3px rgb(224, 255, 233),
+                        inset 0 0 5px rgb(176, 255, 198),
+                        inset 0 0 10px rgb(113, 255, 153),
                         inset 0 0 20px rgb(55, 255, 112),
-                        inset 0 0 30px rgb(6, 255, 76);
-
                 }
 
                 span {

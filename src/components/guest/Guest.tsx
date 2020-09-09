@@ -191,9 +191,6 @@ export default function Guest(props: IGuest) {
 
   return (
     <div className="guest col-12 p-0 m-0">
-      <button className="goback-button" type="button">
-        change when?
-      </button>
       <div id="validation-msg">
         <span>{props.msg}</span>
       </div>

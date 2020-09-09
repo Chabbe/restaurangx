@@ -176,9 +176,9 @@ export default function Table(props: ITable) {
           </select>
         </label>
       </div>
-      <button className="book-button" type="button">
-        Book table
-      </button>
+      <a href="#validation-msg">
+        <button className="book-button" type="button">▼ Book a table ▼</button>
+      </a>
     </div>
   );
 }
