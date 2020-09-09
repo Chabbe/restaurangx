@@ -4,19 +4,18 @@ import Guest from "../guest/Guest";
 import Table from "../table/Table";
 import TableModel from "../../models/tableModel";
 import GuestModel from "../../models/guestModel";
-import { table } from "console";
 
 export default function Booking() {
   const [tables, setTables] = useState({});
   const [guests, setGuests] = useState({});
   const [availabilityMsg, setAvailabilityMsg] = useState("");
   const [validationMsg, setValidationMsg] = useState("");
-  const [scrollClass,  setScrollClass] = useState("")
+  const [scrollClass, setScrollClass] = useState("");
 
   function postTable(guestId: number) {
     axios
       .post("http://localhost:8000/table", { tables, guestId })
-      .then((res) => { });
+      .then((res) => {});
   }
 
   function setGuest(guestObject: GuestModel) {
@@ -24,7 +23,7 @@ export default function Booking() {
   }
 
   function setTable(tableObject: TableModel) {
-    console.log(tableObject)
+    console.log(tableObject);
     setTables(tableObject);
     if (tableObject.time > 0) checkAvailability(tableObject);
   }
@@ -37,20 +36,16 @@ export default function Booking() {
           if (res.data.othersuccess)
             setAvailabilityMsg(
               "Overbooked but available at " +
-              (tableObject.time === 21 ? 18 : 21) +
-              ":00"
+                (tableObject.time === 21 ? 18 : 21) +
+                ":00"
             );
           else setAvailabilityMsg("Overbooked");
         } else setAvailabilityMsg("Time available");
-
       });
   }
 
   function makeReservation(guestObject: GuestModel) {
-    if (
-      validationMsg !== "" 
-    )
-      return;
+    if (validationMsg !== "") return;
 
     console.log("Reservation made", tables);
     setGuest(guestObject);
@@ -68,35 +63,30 @@ export default function Booking() {
     axios.post("http://localhost:8000/deleteall");
   }
 
-  
   function next() {
-    setScrollClass("scroll")
+    setScrollClass("scroll");
   }
   function back() {
-    setScrollClass("scrollBack")
+    setScrollClass("scrollBack");
   }
   return (
     <div className={scrollClass + " container-fluid p-0 booking"}>
       <div className="row justify-content-center p-0">
         <form className="form col-sm-12 col-md-12 col-lg-12 p-0">
-          <Table set={setTable} overbooked={availabilityMsg} next={next}></Table>
+          <Table
+            set={setTable}
+            overbooked={availabilityMsg}
+            next={next}
+          ></Table>
           <Guest
             post={makeReservation}
             setValidation={setValidationMsg}
             set={setGuest}
             back={back}
+            msg={validationMsg}
           ></Guest>
-          <p>{availabilityMsg}</p>
-          <p>{validationMsg}</p>
-          <div className="mt-5">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              onClick={deleteAll}
-            >
-              delete all
-            </button>
-          </div>
+       
+         
         </form>
       </div>
     </div>
