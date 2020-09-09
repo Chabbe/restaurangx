@@ -67,7 +67,7 @@ export default function Guest(props: IGuest) {
         else {
           setErr({
             ...err,
-            firstname: ""
+            firstname: "accepted-input"
           })
           props.setValidation("")
         };
@@ -97,7 +97,7 @@ export default function Guest(props: IGuest) {
         else {
           setErr({
             ...err,
-            lastname: ""
+            lastname: "accepted-input"
           })
           props.setValidation("");
         }
@@ -123,7 +123,7 @@ export default function Guest(props: IGuest) {
         else {
           setErr({
             ...err,
-            email: ""
+            email: "accepted-input"
           })
           props.setValidation("")
         };
@@ -160,7 +160,7 @@ export default function Guest(props: IGuest) {
         else {
           setErr({
             ...err,
-            phonenr: ""
+            phonenr: "accepted-input"
           })
           props.setValidation("");
         } 
