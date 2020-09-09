@@ -7,7 +7,6 @@ interface IGuest {
   set: (guestObject: GuestModel) => void;
   post: (guestObject: GuestModel) => void;
   setValidation: (message: string) => void;
-  back: () => void;
   msg: string;
 }
 
@@ -64,17 +63,10 @@ export default function Guest(props: IGuest) {
         } else {
           setErr({
             ...err,
-<<<<<<< HEAD
-            firstname: "",
-          });
-          props.setValidation("");
-        }
-=======
             firstname: "accepted-input"
           })
           props.setValidation("")
         };
->>>>>>> f444ed03ba672782cd567e17e9186461240ccad5
         break;
       case "lastname":
         if (event.target.value === "") {
@@ -98,13 +90,8 @@ export default function Guest(props: IGuest) {
         } else {
           setErr({
             ...err,
-<<<<<<< HEAD
-            lastname: "",
-          });
-=======
             lastname: "accepted-input"
           })
->>>>>>> f444ed03ba672782cd567e17e9186461240ccad5
           props.setValidation("");
         }
         break;
@@ -127,17 +114,10 @@ export default function Guest(props: IGuest) {
         } else {
           setErr({
             ...err,
-<<<<<<< HEAD
-            email: "",
-          });
-          props.setValidation("");
-        }
-=======
             email: "accepted-input"
           })
           props.setValidation("")
         };
->>>>>>> f444ed03ba672782cd567e17e9186461240ccad5
         break;
       case "phonenr":
         if (event.target.value === "") {
@@ -170,13 +150,8 @@ export default function Guest(props: IGuest) {
         } else {
           setErr({
             ...err,
-<<<<<<< HEAD
-            phonenr: "",
-          });
-=======
             phonenr: "accepted-input"
           })
->>>>>>> f444ed03ba672782cd567e17e9186461240ccad5
           props.setValidation("");
         }
         break;
@@ -196,9 +171,6 @@ export default function Guest(props: IGuest) {
 
   return (
     <div className="guest col-12 p-0 m-0">
-      <button className="goback-button" type="button" onClick={props.back}>
-        change when?
-      </button>
       <div id="validation-msg">
         <span>{props.msg}</span>
       </div>

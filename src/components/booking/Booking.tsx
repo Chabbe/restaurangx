@@ -10,7 +10,6 @@ export default function Booking() {
   const [guests, setGuests] = useState({});
   const [availabilityMsg, setAvailabilityMsg] = useState("");
   const [validationMsg, setValidationMsg] = useState("");
-  const [scrollClass, setScrollClass] = useState("");
 
   function postTable(guestId: number) {
     axios
@@ -63,26 +62,18 @@ export default function Booking() {
     axios.post("http://localhost:8000/deleteall");
   }
 
-  function next() {
-    setScrollClass("scroll");
-  }
-  function back() {
-    setScrollClass("scrollBack");
-  }
   return (
-    <div className={scrollClass + " container-fluid p-0 booking"}>
+    <div className="container-fluid p-0 booking">
       <div className="row justify-content-center p-0">
         <form className="form col-sm-12 col-md-12 col-lg-12 p-0">
           <Table
             set={setTable}
             overbooked={availabilityMsg}
-            next={next}
           ></Table>
           <Guest
             post={makeReservation}
             setValidation={setValidationMsg}
             set={setGuest}
-            back={back}
             msg={validationMsg}
           ></Guest>
        

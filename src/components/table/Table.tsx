@@ -4,8 +4,6 @@ import TableModel from "../../models/tableModel";
 interface ITable {
   set: (tableObject: TableModel) => void;
   overbooked: string;
-  next: () => void;
-
 }
 
 export default function Table(props: ITable) {
@@ -175,7 +173,9 @@ export default function Table(props: ITable) {
           </select>
         </label>
       </div>
-      <button className="book-button" type="button" onClick={props.next}>Book table</button>
+      <a href="#validation-msg">
+        <button className="book-button" type="button">▼ Book a table ▼</button>
+      </a>
     </div>
   );
 }
